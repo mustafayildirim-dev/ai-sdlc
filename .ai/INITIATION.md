@@ -112,6 +112,7 @@ Identify dependencies between phases.
 - Initialize package managers and config files
 - Set up linters and formatters
 - Set up test framework
+- Scaffold `opencode.json` with custom instructions (if project uses OpenCode)
 - Create the first source file(s) as a verification
 - Verify everything builds/runs
 

@@ -88,6 +88,7 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 | `ROADMAP.md` | AI | After initiation | Per milestone | No |
 | `CHANGELOG.md` | AI | After first change | Per change | No |
 | `README.md` | AI | After initiation | As needed | No |
+| `opencode.json` | AI (scaffold) | After initiation | Rarely | Template provided |
 
 ---
 
@@ -132,6 +133,18 @@ For daily development, just tell the AI what to do:
 > **"Add unit tests for the payment service."**
 
 The AI reads RULES.md and WORKFLOW.md at session start, follows Phase 1→4, and updates all documentation automatically.
+
+### Optional: Configure OpenCode
+
+Create `opencode.json` in the project root to embed AI-SDLC instructions directly into the tool:
+
+```json
+{
+  "customInstructions": "Follow the rules in .ai/RULES.md and the workflow in .ai/WORKFLOW.md. Read both files at session start before taking any action."
+}
+```
+
+A template is provided at `.ai/TEMPLATES/OPENCODE_CONFIG_TEMPLATE.json`. This ensures every OpenCode session starts with AI-SDLC active — no manual prompting needed.
 
 ---
 
