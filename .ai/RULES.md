@@ -67,7 +67,22 @@
 | 6.4 | Write commit messages that explain **what and why**, not how. |
 | 6.5 | Never commit **secrets, API keys, passwords, or sensitive data**. If you detect such data, flag it immediately. |
 
-## 7. Security & Ethics
+## 7. Phase Triggers
+
+*These rules map human commands to the appropriate workflow phase.*
+
+| # | Rule |
+|---|------|
+| 7.1 | When **PROJECT.md does not exist** and the human mentions starting a project, propose running **Phase 0: Ideation** from WORKFLOW.md. |
+| 7.2 | When the human says **"ideate"**, **"run the ideator"**, or **"interview me"**, execute **Phase 0.2 (Ideation)** from WORKFLOW.md. |
+| 7.3 | When the human says **"initiate"**, **"initialize"**, **"start the project"**, or **"scaffold"**, execute **Phase 0.3 (Initiation)** from WORKFLOW.md. |
+| 7.4 | When the human gives a **development task** ("implement X", "fix Y", "add feature Z"), execute **Phase 1 → Phase 4** from WORKFLOW.md. |
+| 7.5 | When the human says **"review"** or **"retrospective"**, execute **Phase 4 (Review)** or **Phase 5 (Retrospective)** accordingly. |
+| 7.6 | When the human says **"summarize"** or **"what's the status"**, provide a concise summary from TASKS.md and CHANGELOG.md without executing any phase. |
+
+---
+
+## 8. Security & Ethics
 
 | # | Rule |
 |---|------|

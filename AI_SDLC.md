@@ -93,7 +93,7 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 
 ### Step 1: Copy Reusable Files
 
-Copy `RULES.md` and `WORKFLOW.md` from `.ai/` into your new project's `.ai/` directory. The prompts you need are in `.ai/PROMPTS.md` — open it and copy the relevant section when needed.
+Copy `RULES.md` and `WORKFLOW.md` from `.ai/` into your new project's `.ai/` directory.
 
 ### Step 2: Create VISION.md
 
@@ -107,31 +107,29 @@ Copy `VISION_TEMPLATE.md` to your project root as `VISION.md` and fill in:
 
 ### Step 3: Run the Ideator
 
-When you have VISION.md but no PROJECT.md:
+With VISION.md ready, open an AI conversation and say:
 
-1. Copy the **Ideator Prompt** section from `.ai/PROMPTS.md`
-2. Paste it to start a fresh AI conversation
-3. Let the AI interview you to build PROJECT.md
-4. Review and approve the final PROJECT.md
+> **"Start a new project. I have a VISION.md ready. Run the ideator."**
+
+The AI reads WORKFLOW.md, finds Phase 0.2 (Ideation), and interviews you to build PROJECT.md. Answer its questions one at a time. Review and approve the final PROJECT.md.
 
 ### Step 4: Run the Initiator
 
-When PROJECT.md is ready:
+With PROJECT.md approved, tell the AI:
 
-1. Copy the **Initiator Prompt** section from `.ai/PROMPTS.md`
-2. Paste it (in the same or a new AI conversation — but ensure RULES.md and WORKFLOW.md are accessible)
-3. The AI will design the architecture, create the plan, and scaffold the project
-4. Review and approve
+> **"The PROJECT.md is approved. Initialize the project."**
+
+The AI reads WORKFLOW.md, finds Phase 0.3 (Initiation), and designs the architecture, creates plans, and scaffolds the codebase. Review and approve.
 
 ### Step 5: Work Iteratively
 
-For daily development:
+For daily development, just tell the AI what to do:
 
-1. Copy the **Prompt Template** section from `.ai/PROMPTS.md`
-2. Fill in the current task
-3. Paste into your AI conversation
-4. Let the AI execute the task following WORKFLOW.md
-5. Review, approve, commit
+> **"Implement the user login feature."**
+> **"Fix the database connection error."**
+> **"Add unit tests for the payment service."**
+
+The AI reads RULES.md and WORKFLOW.md at session start, follows Phase 1→4, and updates all documentation automatically.
 
 ---
 
@@ -416,7 +414,7 @@ A: Yes. The system is designed to be model-agnostic. It works with Claude, GPT, 
 A: No. VISION.md is the only file you need to write. The rest are created by the AI during the Ideator and Initiator phases.
 
 **Q: How long does setup take?**
-A: Initial setup (RULES.md, WORKFLOW.md, prompt files) takes about 15-30 minutes once. Each new project takes 1-2 hours for the Ideator + Initiator phases.
+A: Copying `.ai/` to a new project takes 1 minute. Each new project takes 1-2 hours for the Ideator + Initiator phases.
 
 **Q: Can multiple developers use this system?**
 A: Yes. The system is designed for teams. The documentation provides a shared context that all team members and AI assistants operate from.
