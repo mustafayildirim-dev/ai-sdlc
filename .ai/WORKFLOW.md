@@ -78,6 +78,13 @@ Step 1.1: Review Current State
 Step 1.2: Plan This Iteration
   ├── Identify the next milestone target
   ├── Select tasks for this iteration from TASKS.md
+  ├── For each task, classify user-verify need:
+  │   ├── User-facing change (UI/UX, copy, behavior) → plan test scenarios
+  │   ├── Business logic change (rules, calculations) → plan test scenarios
+  │   ├── Bug fix → plan reproduction + confirmation steps
+  │   └── Infra / refactor / backend-only → no user verify needed
+  ├── If user-verify needed, add "Verify with user" sub-task to TASKS.md
+  ├── Group related tasks into check-points for targeted user testing between milestones
   ├── Assess architectural impact of selected tasks
   ├── Identify dependencies and risks
   └── Present plan to human for approval
@@ -188,20 +195,30 @@ Step 4.1: Self-Review
   │   ├── Security (any vulnerabilities?)
   │   └── Performance (any obvious issues?)
 
-Step 4.2: Update Documentation
+Step 4.2: User Verification Gate (if user-verify sub-tasks exist)
+  ├── Check TASKS.md for pending "Verify with user" sub-tasks
+  ├── Prepare specific test scenarios for each user-facing change
+  │   ├── "Try clicking X, expect Y to happen"
+  │   ├── "Enter Z input, expect W output"
+  │   └── "Confirm this matches the expected behavior from PROJECT.md"
+  ├── Present scenarios to human: "Please test these and share feedback"
+  ├── Wait for feedback before marking completion
+  └── If feedback reveals issues → loop back to Phase 2/3
+
+Step 4.3: Update Documentation
   ├── Update CHANGELOG.md (add entry for this change)
   ├── Update CONVENTIONS.md (if new patterns emerged)
   ├── Update GLOSSARY.md (if new terms were introduced)
   ├── Update README.md (if setup/usage changed)
   └── Update TASKS.md (mark tasks as completed)
 
-Step 4.3: Prepare for Commit
+Step 4.4: Prepare for Commit
   ├── Review the diff (git diff)
   ├── Confirm no secrets or debug code
   ├── Write commit message (Conventional Commits format)
   └── Present changes to human for approval
 
-Step 4.4: Cross-Reference Verification
+Step 4.5: Cross-Reference Verification
   ├── Search all .md files for references to changed files
   ├── Verify all references are correct and consistent
   └── Fix any broken or outdated references
