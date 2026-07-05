@@ -91,13 +91,9 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 
 ## Quick Start: Your First AI-SDLC Project
 
-### Step 1: Prepare Your Prompt Files (One-Time Setup)
+### Step 1: Copy Reusable Files
 
-Place the three prompt files into `~/.ai-sdlc/prompts/` so they are available for every project:
-
-- `project_ideator_prompt.md` — Use when you have only a vision
-- `project_initiator_prompt.md` — Use when you have a complete PROJECT.md
-- `prompt_template.md` — Use for daily ongoing work
+Copy `RULES.md` and `WORKFLOW.md` from `.ai/` into your new project's `.ai/` directory. The prompts you need are in `.ai/PROMPTS.md` — open it and copy the relevant section when needed.
 
 ### Step 2: Create VISION.md
 
@@ -113,7 +109,7 @@ Copy `VISION_TEMPLATE.md` to your project root as `VISION.md` and fill in:
 
 When you have VISION.md but no PROJECT.md:
 
-1. Copy the content of `~/.ai-sdlc/prompts/project_ideator_prompt.md`
+1. Copy the **Ideator Prompt** section from `.ai/PROMPTS.md`
 2. Paste it to start a fresh AI conversation
 3. Let the AI interview you to build PROJECT.md
 4. Review and approve the final PROJECT.md
@@ -122,7 +118,7 @@ When you have VISION.md but no PROJECT.md:
 
 When PROJECT.md is ready:
 
-1. Copy the content of `~/.ai-sdlc/prompts/project_initiator_prompt.md`
+1. Copy the **Initiator Prompt** section from `.ai/PROMPTS.md`
 2. Paste it (in the same or a new AI conversation — but ensure RULES.md and WORKFLOW.md are accessible)
 3. The AI will design the architecture, create the plan, and scaffold the project
 4. Review and approve
@@ -131,7 +127,7 @@ When PROJECT.md is ready:
 
 For daily development:
 
-1. Copy `~/.ai-sdlc/prompts/prompt_template.md`
+1. Copy the **Prompt Template** section from `.ai/PROMPTS.md`
 2. Fill in the current task
 3. Paste into your AI conversation
 4. Let the AI execute the task following WORKFLOW.md

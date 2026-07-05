@@ -21,15 +21,18 @@ AI-SDLC is a complete SDLC adapted for human-AI collaboration. It solves three c
 ### Setup (One-Time)
 
 1. Copy `RULES.md` and `WORKFLOW.md` from `.ai/` into your new project's `.ai/` directory
-2. Place the prompt files from `~/.ai-sdlc/prompts/` somewhere accessible
+2. Open `.ai/PROMPTS.md` when you need a prompt — copy the relevant section and paste into your AI conversation
 
 ### Starting a New Project
 
 ```
-1. Write VISION.md       → 5 minutes (use the template in .ai/TEMPLATES/)
-2. Run the Ideator       → AI interviews you to create PROJECT.md
-3. Run the Initiator     → AI creates architecture, plan, and scaffolds code
-4. Use the Template      → AI executes tasks iteratively
+1. Write VISION.md          → 5 minutes (use the template in .ai/TEMPLATES/)
+2. Copy Ideator from        → AI interviews you to create PROJECT.md
+   .ai/PROMPTS.md
+3. Copy Initiator from      → AI creates architecture, plan, and scaffolds code
+   .ai/PROMPTS.md
+4. Copy Template from       → AI executes tasks iteratively
+   .ai/PROMPTS.md
 ```
 
 For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
@@ -51,14 +54,7 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 | `RULES.md` | AI behavioral rules — reusable across projects |
 | `WORKFLOW.md` | AI workflow process — reusable across projects |
 | `TEMPLATES/VISION_TEMPLATE.md` | Template for creating VISION.md |
-
-### Prompt Files (at `~/.ai-sdlc/prompts/`)
-
-| File | When to Use |
-|------|-------------|
-| `project_ideator_prompt.md` | When you have VISION.md but no PROJECT.md yet |
-| `project_initiator_prompt.md` | When PROJECT.md is ready, to initialize the project |
-| `prompt_template.md` | For daily ongoing development |
+| `PROMPTS.md` | All three prompts (Ideator, Initiator, Template) |
 
 ## License
 
