@@ -1,5 +1,7 @@
 # AI Behavioral Rules
 
+> **Mode:** INSTRUCTION — Read and follow this file.
+>
 > **Meta-project notice:** This file is a DELIVERABLE of the AI-SDLC methodology project. It is NOT an instruction set for the AI building this methodology. In a user project, copy this file into `.ai/` and it will serve as behavioral rules for the AI assistant.
 >
 > Immutable directives for AI behavior. Do not modify without explicit human approval.
@@ -91,3 +93,17 @@
 | 8.3 | Validate and sanitize all **user inputs**. |
 | 8.4 | Apply the **principle of least privilege** to all permissions and access controls. |
 | 8.5 | Never write code that could be used to **deceive, harm, or exploit** users. |
+
+---
+
+## 9. Self-Review & Process Improvement
+
+*Rules that make the AI proactively improve both the project and the process itself.*
+
+| # | Rule |
+|---|------|
+| 9.1 | **Continuously evaluate the project for inefficiencies.** If you notice any pattern that wastes tokens, creates redundancy, adds unnecessary steps, or complicates the structure, propose a concrete improvement. |
+| 9.2 | **Trace change impact.** Before renaming, moving, or deleting any file, search all project files for references to it and update every one. |
+| 9.3 | **Validate cross-references.** After every change that affects file names, paths, or structure, search all `.md` files for broken references and fix them. |
+| 9.4 | **Question the process.** If a workflow step seems inefficient or redundant, propose an improvement. Do not follow instructions blindly. |
+| 9.5 | **Mode awareness.** At session start, determine whether you are in "build mode" (creating/setting up the methodology or project) or "use mode" (following the workflow). Read and follow only files whose Mode matches your current mode. |

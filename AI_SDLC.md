@@ -73,21 +73,23 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 
 ### File Ownership and Lifecycle
 
-| File | Owner | Created | Updated | Reusable? |
-|------|-------|---------|---------|-----------|
-| `VISION.md` | Human | Project start | As vision evolves | Template provided |
-| `RULES.md` | Human (AI proposes) | Project start | Rarely | **Yes** — copy to new projects |
-| `WORKFLOW.md` | Human (AI proposes) | Project start | Rarely | **Yes** — copy to new projects |
-| `INITIATION.md` | Human (AI proposes) | Project start | Rarely | **Yes** — copy to new projects |
-| `PROJECT.md` | Human + AI | After ideation | Per milestone | No |
-| `ARCHITECTURE.md` | AI | After initiation | Per significant change | No |
-| `CONVENTIONS.md` | AI | After initiation | Continuously | No |
-| `DECISIONS.md` | AI | After first decision | As decisions occur | No |
-| `GLOSSARY.md` | AI | After initiation | As terms emerge | No |
-| `TASKS.md` | AI | After initiation | Continuously | No |
-| `ROADMAP.md` | AI | After initiation | Per milestone | No |
-| `CHANGELOG.md` | AI | After first change | Per change | No |
-| `README.md` | AI | After initiation | As needed | No |
+| File | Mode | Owner | Created | Updated | Reusable? |
+|------|------|-------|---------|---------|-----------|
+| `VISION.md` | REFERENCE | Human | Project start | As vision evolves | Template provided |
+| `RULES.md` | INSTRUCTION | Human (AI proposes) | Project start | Rarely | **Yes** — copy to new projects |
+| `WORKFLOW.md` | INSTRUCTION | Human (AI proposes) | Project start | Rarely | **Yes** — copy to new projects |
+| `INITIATION.md` | INSTRUCTION¹ | Human (AI proposes) | Project start | Rarely | **Yes** — copy to new projects |
+| `PROJECT.md` | REFERENCE | Human + AI | After ideation | Per milestone | No |
+| `ARCHITECTURE.md` | REFERENCE | AI | After initiation | Per significant change | No |
+| `CONVENTIONS.md` | REFERENCE | AI | After initiation | Continuously | No |
+| `DECISIONS.md` | REFERENCE | AI | After first decision | As decisions occur | No |
+| `GLOSSARY.md` | REFERENCE | AI | After initiation | As terms emerge | No |
+| `TASKS.md` | REFERENCE | AI | After initiation | Continuously | No |
+| `ROADMAP.md` | REFERENCE | AI | After initiation | Per milestone | No |
+| `CHANGELOG.md` | REFERENCE | AI | After first change | Per change | No |
+| `README.md` | REFERENCE | AI | After initiation | As needed | No |
+
+> ¹ INITIATION.md is INSTRUCTION only during Phase 0. Once PROJECT.md exists, it becomes REFERENCE (no longer read).
 
 ---
 
@@ -159,13 +161,19 @@ The "what." Defines scope, features, technical stack, milestones, and success cr
 
 ### RULES.md
 
+**Mode:** INSTRUCTION — Read and follow.
+
 The "how to behave." Immutable behavioral directives for the AI. Never modified without explicit human approval. Can be copied verbatim between projects.
 
 ### WORKFLOW.md
 
+**Mode:** INSTRUCTION — Read and follow.
+
 The "how to work." The step-by-step process the AI follows in every session. Includes session lifecycle, phase triggers, Phase 1-5 (Planning through Retrospective), and git workflow. Read every session after initialization.
 
 ### INITIATION.md
+
+**Mode:** INSTRUCTION — Read and follow only during Phase 0.
 
 The "how to get started." Used only once per project. Contains Phase 0: Ideation (interviewing the human to create PROJECT.md) and Phase 0: Initiation (designing architecture, planning, scaffolding). Read only when PROJECT.md does not exist.
 

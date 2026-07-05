@@ -1,5 +1,7 @@
 # AI Development Workflow
 
+> **Mode:** INSTRUCTION — Read and follow this file.
+>
 > **Meta-project notice:** This file is a DELIVERABLE of the AI-SDLC methodology project. It is NOT an instruction set for the AI building this methodology. In a user project, copy this file into `.ai/` and it will serve as the AI workflow process.
 >
 > The step-by-step process the AI follows during project execution.
@@ -200,6 +202,11 @@ Step 4.3: Prepare for Commit
   ├── Confirm no secrets or debug code
   ├── Write commit message (Conventional Commits format)
   └── Present changes to human for approval
+
+Step 4.4: Cross-Reference Verification
+  ├── Search all .md files for references to changed files
+  ├── Verify all references are correct and consistent
+  └── Fix any broken or outdated references
 ```
 
 ### Exit Criteria
@@ -231,6 +238,8 @@ Step 5.1: Review What Happened
 Step 5.2: Improve the Process
   ├── Propose improvements to WORKFLOW.md (if any)
   ├── Propose new rules for RULES.md (if any)
+  ├── Identify context-window inefficiencies (files read unnecessarily)
+  ├── Suggest file restructuring if read patterns are suboptimal
   ├── Update CONVENTIONS.md with lessons learned
   ├── Update PROJECT.md if scope has shifted
   ├── Update ROADMAP.md based on learnings
