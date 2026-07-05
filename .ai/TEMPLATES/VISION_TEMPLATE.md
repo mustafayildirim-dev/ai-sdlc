@@ -1,7 +1,5 @@
 # Product Vision — [Project Name]
 
-> **Mode:** REFERENCE — Template for human use. Not an AI instruction.
->
 > **Instructions:** Fill out each section below. Be concise but specific. This document is the seed from which your entire project grows. Aim for 1-2 pages total.
 
 ---

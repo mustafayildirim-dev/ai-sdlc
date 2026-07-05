@@ -1,7 +1,5 @@
 # Project Initiation Guide
 
-> **Mode:** INSTRUCTION — Read and follow only during Phase 0 (when PROJECT.md does not exist).
->
 > Phase 0 of the AI-SDLC workflow. Read this file only when PROJECT.md does not exist (starting a new project).
 > Once the project is initialized, this file is no longer needed.
 

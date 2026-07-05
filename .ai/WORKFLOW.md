@@ -1,7 +1,5 @@
 # AI Development Workflow
 
-> **Mode:** INSTRUCTION — Read and follow this file.
->
 > **Meta-project notice:** This file is a DELIVERABLE of the AI-SDLC methodology project. It is NOT an instruction set for the AI building this methodology. In a user project, copy this file into `.ai/` and it will serve as the AI workflow process.
 >
 > The step-by-step process the AI follows during project execution.

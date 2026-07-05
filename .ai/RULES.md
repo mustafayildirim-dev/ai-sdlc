@@ -1,7 +1,5 @@
 # AI Behavioral Rules
 
-> **Mode:** INSTRUCTION — Read and follow this file.
->
 > **Meta-project notice:** This file is a DELIVERABLE of the AI-SDLC methodology project. It is NOT an instruction set for the AI building this methodology. In a user project, copy this file into `.ai/` and it will serve as behavioral rules for the AI assistant.
 >
 > Immutable directives for AI behavior. Do not modify without explicit human approval.
@@ -106,4 +104,4 @@
 | 9.2 | **Trace change impact.** Before renaming, moving, or deleting any file, search all project files for references to it and update every one. |
 | 9.3 | **Validate cross-references.** After every change that affects file names, paths, or structure, search all `.md` files for broken references and fix them. |
 | 9.4 | **Question the process.** If a workflow step seems inefficient or redundant, propose an improvement. Do not follow instructions blindly. |
-| 9.5 | **Mode awareness.** At session start, determine whether you are in "build mode" (creating/setting up the methodology or project) or "use mode" (following the workflow). Read and follow only files whose Mode matches your current mode. |
+| 9.5 | **Meta-mode awareness.** When this methodology project is being built, `.ai/` files are the *deliverable* (not instructions). In a user project, they become the *instruction set*. At session start, determine which context you are in and behave accordingly. |
