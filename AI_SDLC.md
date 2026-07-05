@@ -140,6 +140,15 @@ For daily development, just tell the AI what to do:
 
 The AI reads RULES.md and WORKFLOW.md at session start, follows Phase 1→4, and updates all documentation automatically.
 
+### Step 6: Evaluate Project Health
+
+Periodically check project integrity:
+
+> **"Evaluate the project health."**
+> **"Run a project audit."**
+
+The AI executes **Phase 6 (Project Evaluation)** — file inventory, cross-reference audit, consistency checks, risk review, and a health score. Review and address the action items.
+
 ### Optional: Configure OpenCode
 
 Create `opencode.json` in the project root to embed AI-SDLC instructions directly into the tool:
@@ -254,6 +263,11 @@ The public face of the project. Contains setup instructions, usage examples, and
 │  │                   RETROSPECTIVE                             │ │
 │  │  Review metrics, update conventions, improve process       │ │
 │  └────────────────────────────────────────────────────────────┘ │
+│                                                                 │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │                PHASE 6: EVALUATION                          │ │
+│  │  File inventory, cross-ref audit, risk review, health score│ │
+│  └────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -279,6 +293,12 @@ The public face of the project. Contains setup instructions, usage examples, and
 - [ ] Code is committed
 - [ ] TASKS.md is updated
 - [ ] All quality gates passed
+
+**Retrospective → Evaluation (periodic)**
+- [ ] Cross-references validated
+- [ ] Consistency checks passed
+- [ ] Risk register reviewed
+- [ ] Health score reported
 
 ---
 

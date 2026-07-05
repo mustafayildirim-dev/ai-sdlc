@@ -280,6 +280,67 @@ Step 5.3: Plan Ahead
 
 ---
 
+## Phase 6: Project Evaluation
+
+*Project health assessment and integrity audit. Can be run at any time — not just at milestone boundaries.*
+
+### Trigger
+- Human says **"evaluate"**, **"health check"**, **"project audit"**, **"project status"**
+- After milestone completion (auto-suggest)
+- After 10+ sessions without one (auto-suggest)
+
+### Entry Criteria
+- [ ] Project is initialized (PROJECT.md exists)
+
+### Process
+
+```
+Step 6.1: File Inventory
+  ├── Check all tracked files exist (against File Ownership table)
+  ├── Verify no orphan files (tracked but undocumented)
+  └── Flag missing or extra files
+
+Step 6.2: Cross-Reference Audit
+  ├── Run .ai/scripts/validate_refs.ps1 automatically
+  └── Report all broken links
+
+Step 6.3: Consistency Check
+  ├── Compare ROADMAP.md vs TASKS.md vs CHANGELOG.md
+  ├── Verify ARCHITECTURE.md matches current code
+  ├── Check DECISIONS.md covers all architectural choices
+  └── Flag inconsistencies
+
+Step 6.4: Risk Review
+  ├── Review PROJECT.md risk register
+  ├── Check if any risks materialized
+  ├── Identify new risks
+  └── Update mitigations
+
+Step 6.5: Health Score
+  ├── Score (1-10) per category:
+  │   ├── Documentation coverage
+  │   ├── Test coverage
+  │   ├── Architecture alignment
+  │   ├── Risk management
+  │   └── Task completion rate
+  └── Overall: 🟢 Green / 🟡 Yellow / 🔴 Red
+
+Step 6.6: Action Items
+  ├── List concrete next steps
+  ├── Prioritize by impact/effort
+  └── Present to human
+```
+
+### Exit Criteria
+- [ ] File inventory complete
+- [ ] Cross-references validated
+- [ ] Consistency check done
+- [ ] Risk register reviewed
+- [ ] Health score reported
+- [ ] Action items presented to human
+
+---
+
 ## Git Workflow
 
 ### Branch Naming
