@@ -56,6 +56,7 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 │  ├── VISION.md          ─  Why does this exist?          │
 │  ├── RULES.md           ─  How should AI behave?         │
 │  ├── WORKFLOW.md        ─  How should AI work?           │
+│  ├── INITIATION.md      ─  How to get started?           │
 │  └── PROJECT.md         ─  What are we building?         │
 │                                                          │
 │  Dynamic (AI-managed):                                   │
@@ -77,6 +78,7 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 | `VISION.md` | Human | Project start | As vision evolves | Template provided |
 | `RULES.md` | Human (AI proposes) | Project start | Rarely | **Yes** — copy to new projects |
 | `WORKFLOW.md` | Human (AI proposes) | Project start | Rarely | **Yes** — copy to new projects |
+| `INITIATION.md` | Human (AI proposes) | Project start | Rarely | **Yes** — copy to new projects |
 | `PROJECT.md` | Human + AI | After ideation | Per milestone | No |
 | `ARCHITECTURE.md` | AI | After initiation | Per significant change | No |
 | `CONVENTIONS.md` | AI | After initiation | Continuously | No |
@@ -111,7 +113,7 @@ With VISION.md ready, open an AI conversation and say:
 
 > **"Start a new project. I have a VISION.md ready. Run the ideator."**
 
-The AI reads WORKFLOW.md, finds Phase 0.2 (Ideation), and interviews you to build PROJECT.md. Answer its questions one at a time. Review and approve the final PROJECT.md.
+The AI reads INITIATION.md, executes Step 0.2 (Ideation), and interviews you to build PROJECT.md. Answer its questions one at a time. Review and approve the final PROJECT.md.
 
 ### Step 4: Run the Initiator
 
@@ -119,7 +121,7 @@ With PROJECT.md approved, tell the AI:
 
 > **"The PROJECT.md is approved. Initialize the project."**
 
-The AI reads WORKFLOW.md, finds Phase 0.3 (Initiation), and designs the architecture, creates plans, and scaffolds the codebase. Review and approve.
+The AI reads INITIATION.md, executes Step 0.3 (Initiation), and designs the architecture, creates plans, and scaffolds the codebase. Review and approve.
 
 ### Step 5: Work Iteratively
 
@@ -289,7 +291,9 @@ One of AI-SDLC's key innovations is maintaining consistency even when the underl
 │  4. Read CONVENTIONS.md      │
 │  5. Read TASKS.md            │
 │  6. Read CHANGELOG.md        │
-│  7. Continue seamlessly      │
+│  7. Read INITIATION.md (if   │
+│     PROJECT.md doesn't exist)│
+│  8. Continue seamlessly      │
 └──────────────────────────────┘
 ```
 
@@ -397,7 +401,7 @@ TASKS.md tracks completion. CHANGELOG.md tracks changes. The Retrospective phase
 
 ### "We switched models and the new one doesn't understand what was built."
 
-**Solution:** This is exactly what AI-SDLC prevents. Run the startup sequence: read RULES.md, WORKFLOW.md, PROJECT.md, CONVENTIONS.md, TASKS.md, CHANGELOG.md, ARCHITECTURE.md before starting any work.
+**Solution:** This is exactly what AI-SDLC prevents. Run the startup sequence: read RULES.md, WORKFLOW.md, PROJECT.md, CONVENTIONS.md, TASKS.md, CHANGELOG.md, ARCHITECTURE.md, DECISIONS.md, and INITIATION.md (if PROJECT.md doesn't exist) before starting any work.
 
 ### "The project scope keeps growing."
 

@@ -73,9 +73,9 @@
 
 | # | Rule |
 |---|------|
-| 7.1 | When **PROJECT.md does not exist** and the human mentions starting a project, propose running **Phase 0: Ideation** from WORKFLOW.md. |
-| 7.2 | When the human says **"ideate"**, **"run the ideator"**, or **"interview me"**, execute **Phase 0.2 (Ideation)** from WORKFLOW.md. |
-| 7.3 | When the human says **"initiate"**, **"initialize"**, **"start the project"**, or **"scaffold"**, execute **Phase 0.3 (Initiation)** from WORKFLOW.md. |
+| 7.1 | When **PROJECT.md does not exist** and the human mentions starting a project, propose running **Ideation** from INITIATION.md. |
+| 7.2 | When the human says **"ideate"**, **"run the ideator"**, or **"interview me"**, execute **Step 0.2 (Ideation)** from INITIATION.md. |
+| 7.3 | When the human says **"initiate"**, **"initialize"**, **"start the project"**, or **"scaffold"**, execute **Step 0.3 (Initiation)** from INITIATION.md. |
 | 7.4 | When the human gives a **development task** ("implement X", "fix Y", "add feature Z"), execute **Phase 1 → Phase 4** from WORKFLOW.md. |
 | 7.5 | When the human says **"review"** or **"retrospective"**, execute **Phase 4 (Review)** or **Phase 5 (Retrospective)** accordingly. |
 | 7.6 | When the human says **"summarize"** or **"what's the status"**, provide a concise summary from TASKS.md and CHANGELOG.md without executing any phase. |

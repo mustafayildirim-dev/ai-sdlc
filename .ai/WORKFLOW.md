@@ -17,6 +17,7 @@ Every AI session follows this lifecycle:
 │  Read: RULES.md, WORKFLOW.md, PROJECT.md,            │
 │  CONVENTIONS.md, TASKS.md, CHANGELOG.md,             │
 │  ARCHITECTURE.md, DECISIONS.md                       │
+│  (Also read INITIATION.md if PROJECT.md doesn't exist)│
 └───────────────────┬─────────────────────────────────┘
                     │
                     ▼
@@ -30,8 +31,8 @@ Every AI session follows this lifecycle:
 ┌─────────────────────────────────────────────────────┐
 │           TRIGGER (map human request to phase)       │
 │                                                      │
-│  "start a project" / "ideate"  →  Phase 0.2         │
-│  "initiate" / "initialize"     →  Phase 0.3         │
+│  "start a project" / "ideate"  →  INITIATION.md     │
+│  "initiate" / "initialize"     →  INITIATION.md     │
 │  "implement X" / "fix Y"       →  Phase 1 → 4       │
 │  Other development task        →  Phase 1 → 4       │
 └───────────────────┬─────────────────────────────────┘
@@ -61,7 +62,7 @@ Every AI session follows this lifecycle:
 *At the start of each iteration.*
 
 ### Entry Criteria
-- [ ] Project is initialized (Phase 0 is complete)
+- [ ] Project is initialized (INITIATION.md phase is complete)
 - [ ] TASKS.md has backlog items or milestones defined
 
 ### Process
