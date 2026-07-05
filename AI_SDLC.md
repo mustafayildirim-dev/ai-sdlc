@@ -93,7 +93,7 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 
 ### Step 1: Copy Reusable Files
 
-Copy `RULES.md` and `WORKFLOW.md` from `.ai/` into your new project's `.ai/` directory.
+Copy the entire `.ai/` directory — `RULES.md`, `WORKFLOW.md`, `INITIATION.md`, and `TEMPLATES/` — into your new project.
 
 ### Step 2: Create VISION.md
 
@@ -161,7 +161,11 @@ The "how to behave." Immutable behavioral directives for the AI. Never modified 
 
 ### WORKFLOW.md
 
-The "how to work." The step-by-step process the AI follows. Includes phases, gates, session management, and git workflow. Can be copied between projects with minor adjustments.
+The "how to work." The step-by-step process the AI follows in every session. Includes session lifecycle, phase triggers, Phase 1-5 (Planning through Retrospective), and git workflow. Read every session after initialization.
+
+### INITIATION.md
+
+The "how to get started." Used only once per project. Contains Phase 0: Ideation (interviewing the human to create PROJECT.md) and Phase 0: Initiation (designing architecture, planning, scaffolding). Read only when PROJECT.md does not exist.
 
 ### ARCHITECTURE.md
 
@@ -411,7 +415,7 @@ TASKS.md tracks completion. CHANGELOG.md tracks changes. The Retrospective phase
 A: Yes. The system is designed to be model-agnostic. It works with Claude, GPT, OpenCode, and any other conversational AI that can read files and execute commands.
 
 **Q: Do I need to create all the files manually?**
-A: No. VISION.md is the only file you need to write. The rest are created by the AI during the Ideator and Initiator phases.
+A: No. VISION.md is the only file you need to write. RULES.md, WORKFLOW.md, and INITIATION.md are copied from the template. The rest are created by the AI during the Ideator and Initiator phases.
 
 **Q: How long does setup take?**
 A: Copying `.ai/` to a new project takes 1 minute. Each new project takes 1-2 hours for the Ideator + Initiator phases.

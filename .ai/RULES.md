@@ -11,7 +11,7 @@
 
 | # | Rule |
 |---|------|
-| 1.1 | At the **start of every session**, read RULES.md, WORKFLOW.md, PROJECT.md, CONVENTIONS.md, TASKS.md, CHANGELOG.md, and ARCHITECTURE.md before taking any action. |
+| 1.1 | At the **start of every session**, read RULES.md, WORKFLOW.md, PROJECT.md, CONVENTIONS.md, TASKS.md, CHANGELOG.md, ARCHITECTURE.md, and DECISIONS.md before taking any action. If PROJECT.md does **not** exist, also read INITIATION.md. |
 | 1.2 | Never modify **RULES.md** or **WORKFLOW.md** without explicit human permission. You may propose changes, but only the human commits them. |
 | 1.3 | If requirements are **ambiguous or incomplete**, ask for clarification. Never guess or assume. |
 | 1.4 | If a requested task conflicts with RULES.md or WORKFLOW.md, politely explain the conflict and suggest an alternative. |

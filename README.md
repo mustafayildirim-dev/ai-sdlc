@@ -20,7 +20,7 @@ AI-SDLC is a complete SDLC adapted for human-AI collaboration. It solves three c
 
 ### Setup (One-Time)
 
-Copy the entire `.ai/` directory (containing RULES.md, WORKFLOW.md, and TEMPLATES/) into your new project.
+Copy the entire `.ai/` directory (containing RULES.md, WORKFLOW.md, INITIATION.md, and TEMPLATES/) into your new project.
 
 ### Starting a New Project
 
@@ -50,7 +50,8 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 | File | Purpose |
 |------|---------|
 | `RULES.md` | AI behavioral rules — reusable across projects |
-| `WORKFLOW.md` | AI workflow process — reusable across projects |
+| `WORKFLOW.md` | AI workflow process — reusable across projects (read every session) |
+| `INITIATION.md` | Phase 0: Ideation & Initiation — only read during project setup |
 | `TEMPLATES/VISION_TEMPLATE.md` | Template for creating VISION.md |
 
 ## License
