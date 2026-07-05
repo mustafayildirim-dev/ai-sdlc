@@ -1,0 +1,12 @@
+name: Validate
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate cross-references
+        run: pwsh -File .ai/scripts/validate_refs.ps1
+        shell: pwsh

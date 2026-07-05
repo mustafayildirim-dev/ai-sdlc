@@ -89,6 +89,8 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 | `CHANGELOG.md` | AI | After first change | Per change | No |
 | `README.md` | AI | After initiation | As needed | No |
 | `opencode.json` | AI (scaffold) | After initiation | Rarely | Template provided |
+| `CONTRIBUTING.md` | Human | Project start | As needed | No |
+| `LICENSE` | Human | Project start | Never | No |
 
 ---
 
@@ -476,28 +478,12 @@ A: You approve every AI output before it's finalized. The Ideator presents PROJE
 
 ### ADR Entry Template
 
-```markdown
-## ADR-XXX: [Title]
+See `.ai/TEMPLATES/ADR_TEMPLATE.md`.
 
-**Date:** YYYY-MM-DD
-**Status:** [Proposed | Accepted | Deprecated | Superseded]
-
-**Context:**
-...
-
-**Decision:**
-...
-
-**Options Considered:**
-1. Option A — pros/cons
-2. Option B — pros/cons
-
-**Rationale:**
-...
-
-**Consequences:**
-...
-```
+Additional templates available in `.ai/TEMPLATES/`:
+- `CONVENTIONS_TEMPLATE.md` — coding conventions starter
+- `GLOSSARY_TEMPLATE.md` — glossary starter
+- `OPENCODE_CONFIG_TEMPLATE.json` — OpenCode integration
 
 ---
 
