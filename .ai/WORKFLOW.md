@@ -212,13 +212,18 @@ Step 4.3: Update Documentation
   ├── Update README.md (if setup/usage changed)
   └── Update TASKS.md (mark tasks as completed)
 
-Step 4.4: Prepare for Commit
+Step 4.4: Security Scan
+  ├── Run `.ai/scripts/security_check.ps1` on staged files
+  ├── If secrets detected → BLOCK commit, flag to human
+  └── If clean → proceed
+
+Step 4.5: Prepare for Commit
   ├── Review the diff (git diff)
   ├── Confirm no secrets or debug code
   ├── Write commit message (Conventional Commits format)
   └── Present changes to human for approval
 
-Step 4.5: Cross-Reference Verification
+Step 4.6: Cross-Reference Verification
   ├── Search all .md files for references to changed files
   ├── Verify all references are correct and consistent
   └── Fix any broken or outdated references

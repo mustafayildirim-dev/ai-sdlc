@@ -91,6 +91,8 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 | `opencode.json` | AI (scaffold) | After initiation | Rarely | Template provided |
 | `CONTRIBUTING.md` | Human | Project start | As needed | No |
 | `LICENSE` | Human | Project start | Never | No |
+| `.ai/scripts/security_check.ps1` | AI (scaffold) | After initiation | Rarely | Copy to projects |
+| `.github/workflows/security.yml` | AI (scaffold) | After initiation | Rarely | Copy to projects |
 
 ---
 
@@ -124,7 +126,9 @@ With PROJECT.md approved, tell the AI:
 
 > **"The PROJECT.md is approved. Initialize the project."**
 
-The AI reads INITIATION.md, executes Step 0.3 (Initiation), and designs the architecture, creates plans, and scaffolds the codebase. Review and approve.
+The AI reads INITIATION.md, executes Step 0.3 (Initiation), and designs the architecture, creates plans, and scaffolds the codebase.
+
+The AI will also ask if you want to publish to **GitHub**. If yes, create a repo on github.com and the AI will set up the remote and push. Review and approve all output.
 
 ### Step 5: Work Iteratively
 

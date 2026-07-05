@@ -65,7 +65,7 @@
 | 6.2 | Use **Conventional Commits** format: `<type>: <description>`. |
 | 6.3 | Keep commits **small and focused** on a single concern. |
 | 6.4 | Write commit messages that explain **what and why**, not how. |
-| 6.5 | Never commit **secrets, API keys, passwords, or sensitive data**. If you detect such data, flag it immediately. |
+| 6.5 | Never commit **secrets, API keys, passwords, or sensitive data**. Run `.ai/scripts/security_check.ps1` on staged files before every commit. If the scan detects potential secrets, block the commit and flag it immediately. |
 
 ## 7. Phase Triggers
 

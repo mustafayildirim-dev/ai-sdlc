@@ -132,6 +132,14 @@ Present a summary to the human:
 - Milestone plan (key milestones with dates)
 - Next immediate step
 - Any decisions needing human input
+- Ask: "Would you like to publish this project to GitHub?"
+  - If **yes**: guide the human to create a repo on github.com, then:
+    ```
+    git remote add origin <url>
+    git push -u origin main
+    ```
+    Ask: "Would you like to enable GitHub Pages for README visibility?"
+  - If **no**: skip, the human can do it later
 
 ---
 
