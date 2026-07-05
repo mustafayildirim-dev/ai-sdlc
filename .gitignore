@@ -1,0 +1,29 @@
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# Editor temp files
+*~
+*.bak
+
+# Node (if any Node tooling is added)
+node_modules/
+npm-debug.log*
+
+# Python (if any Python tooling is added)
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Rust (if any Rust tooling is added)
+target/
