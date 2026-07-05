@@ -146,7 +146,7 @@ Create `opencode.json` in the project root to embed AI-SDLC instructions directl
 
 ```json
 {
-  "customInstructions": "Follow the rules in .ai/RULES.md and the workflow in .ai/WORKFLOW.md. Read both files at session start before taking any action."
+  "instructions": [".ai/RULES.md", ".ai/WORKFLOW.md"]
 }
 ```
 
