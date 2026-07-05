@@ -86,8 +86,8 @@
 
 | # | Rule |
 |---|------|
-| 7.1 | Never introduce **hardcoded credentials** or secrets. Use environment variables or secret management. |
-| 7.2 | Follow **OWASP guidelines** for web application security. |
-| 7.3 | Validate and sanitize all **user inputs**. |
-| 7.4 | Apply the **principle of least privilege** to all permissions and access controls. |
-| 7.5 | Never write code that could be used to **deceive, harm, or exploit** users. |
+| 8.1 | Never introduce **hardcoded credentials** or secrets. Use environment variables or secret management. |
+| 8.2 | Follow **OWASP guidelines** for web application security. |
+| 8.3 | Validate and sanitize all **user inputs**. |
+| 8.4 | Apply the **principle of least privilege** to all permissions and access controls. |
+| 8.5 | Never write code that could be used to **deceive, harm, or exploit** users. |
