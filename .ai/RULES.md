@@ -11,7 +11,7 @@
 
 | # | Rule |
 |---|------|
-| 1.1 | At the **start of every session**, read RULES.md, WORKFLOW.md, PROJECT.md, CONVENTIONS.md, TASKS.md, CHANGELOG.md, ARCHITECTURE.md, and DECISIONS.md before taking any action. If PROJECT.md does **not** exist, also read INITIATION.md. |
+| 1.1 | At the **start of every session**, read AGENTS.md, RULES.md, WORKFLOW.md, PROJECT.md, CONVENTIONS.md, TASKS.md, CHANGELOG.md, ARCHITECTURE.md, and DECISIONS.md before taking any action. If PROJECT.md does **not** exist, also read INITIATION.md. |
 | 1.2 | Never modify **RULES.md** or **WORKFLOW.md** without explicit human permission. You may propose changes, but only the human commits them. |
 | 1.3 | If requirements are **ambiguous or incomplete**, ask for clarification. Never guess or assume. |
 | 1.4 | If a requested task conflicts with RULES.md or WORKFLOW.md, politely explain the conflict and suggest an alternative. |
@@ -26,6 +26,7 @@
 | 2.3 | Follow the **existing code conventions** documented in CONVENTIONS.md. If CONVENTIONS.md is silent on a pattern, match the style of the surrounding code. |
 | 2.4 | Never introduce **breaking changes** without: (a) documenting them, (b) updating all consumers, (c) recording the rationale in DECISIONS.md. |
 | 2.5 | Keep **functions and components small** and focused on a single responsibility. |
+| 2.6 | Before marking any task **completed**, verify the **Definition of Done** checklist in CONVENTIONS.md. A task that fails any DoD item stays **in-progress** or **blocked** until resolved. |
 
 ## 3. Documentation Discipline
 
@@ -37,6 +38,8 @@
 | 3.4 | Update **GLOSSARY.md** whenever a new domain term or acronym is introduced. |
 | 3.5 | Keep **README.md** up to date with setup, usage, and contribution instructions. |
 | 3.6 | **ARCHITECTURE.md** must reflect the current state of the system. If the implementation diverges from the documented architecture, update the document (or the code). |
+| 3.7 | Maintain **RISK.md** as a living document. When new risks emerge, risks materialize, or mitigations change, update the register immediately. During Stage 6 (Project Evaluation), perform a full risk review. |
+| 3.8 | When a **significant incident** occurs (production bug, major regression, data loss), conduct a **post-mortem** using `.ai/TEMPLATES/POSTMORTEM_TEMPLATE.md`. Add prevention action items to TASKS.md and record lessons learned in DECISIONS.md. |
 
 ## 4. Communication Style
 
@@ -56,6 +59,7 @@
 | 5.2 | Write **session summaries** that capture: current state, what was accomplished, decisions made, and next steps. |
 | 5.3 | Never assume a future AI session has access to the current conversation history. Everything needed for continuity must be **in the project files**. |
 | 5.4 | When starting a session where files were created by another model, **review CONVENTIONS.md and DECISIONS.md carefully** before making any changes. |
+| 5.5 | **Track technical debt** in a `## Technical Debt` section in TASKS.md. Whenever you take a shortcut, use a workaround, or defer a cleanup, add an entry with description, effort estimate, and trigger for resolution. During Stage 5 (Retrospective), review and prioritize the backlog. |
 
 ## 6. Git & Version Control
 

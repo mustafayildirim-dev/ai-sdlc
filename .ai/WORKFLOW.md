@@ -14,7 +14,7 @@ Every AI session follows this lifecycle:
 ```
 ┌─────────────────────────────────────────────────────┐
 │                 SESSION START                        │
-│  Read: RULES.md, WORKFLOW.md, PROJECT.md,            │
+│  Read: AGENTS.md, RULES.md, WORKFLOW.md, PROJECT.md, │
 │  CONVENTIONS.md, TASKS.md, CHANGELOG.md,             │
 │  ARCHITECTURE.md, DECISIONS.md                       │
 │  (Also read INITIATION.md if PROJECT.md doesn't exist)│
@@ -69,6 +69,7 @@ Every AI session follows this lifecycle:
 
 ```
 Step 1.1: Review Current State
+  ├── Read AGENTS.md (project overview, key files)
   ├── Read PROJECT.md (confirm scope hasn't changed)
   ├── Read ROADMAP.md (check milestone progress)
   ├── Read TASKS.md (check current task status)
@@ -248,6 +249,14 @@ Step 4.6: Cross-Reference Verification
   ├── Search all .md files for references to changed files
   ├── Verify all references are correct and consistent
   └── Fix any broken or outdated references
+
+Step 4.7: Post-Mortem (if applicable)
+  ├── If a significant incident occurred (production bug, major regression):
+  │   ├── Use `.ai/TEMPLATES/POSTMORTEM_TEMPLATE.md` to document
+  │   ├── Add prevention action items to TASKS.md
+  │   ├── Update RISK.md if incident reveals a new risk
+  │   └── Record lessons learned in DECISIONS.md
+  └── Otherwise → skip
 ```
 
 ### Exit Criteria
@@ -284,6 +293,10 @@ Step 5.2: Improve the Process
   ├── Update CONVENTIONS.md with lessons learned
   ├── Update PROJECT.md if scope has shifted
   ├── Update ROADMAP.md based on learnings
+  ├── Review technical debt backlog (see Tech Debt section in TASKS.md)
+  │   ├── Add new tech debt items discovered during the iteration
+  │   ├── Schedule high-priority items for upcoming milestones
+  │   └── Close items that were resolved
   └── Record key insights in DECISIONS.md
 
 Step 5.3: Plan Ahead
@@ -332,10 +345,11 @@ Step 6.3: Consistency Check
   └── Flag inconsistencies
 
 Step 6.4: Risk Review
-  ├── Review PROJECT.md risk register
+  ├── Read RISK.md
   ├── Check if any risks materialized
-  ├── Identify new risks
-  └── Update mitigations
+  ├── Move materialized risks to Mitigated with outcome notes
+  ├── Identify new risks and add to Active
+  └── Update mitigations for existing Active risks
 
 Step 6.5: Health Score
   ├── Score (1-10) per category:
@@ -390,6 +404,26 @@ git push origin feature/user-authentication
 - Never force-push to shared branches
 - Rebase onto `develop` before creating a PR
 - Delete feature branches after merging
+
+---
+
+## Technical Debt Tracking
+
+Technical debt (workarounds, shortcuts, deprecated patterns) is tracked in `TASKS.md` under a dedicated `## Technical Debt` section:
+
+```markdown
+## Technical Debt
+
+| ID | Description | Added | Effort | Priority | Scheduled | Status |
+|----|-------------|-------|--------|----------|-----------|--------|
+| TD-1 | Replace hardcoded config with env vars | 2026-01-15 | S | Medium | Milestone 2 | pending |
+| TD-2 | Migrate inline styles to CSS modules | 2026-02-01 | L | Low | — | pending |
+```
+
+- New debt items are added during **Stage 5 (Retrospective)** when the AI identifies shortcuts taken
+- Items can also be added during **Stage 4 (Review)** if the AI notices debt during self-review
+- High-priority items should be scheduled into upcoming milestones
+- When debt is resolved, mark as `closed` and add resolution notes
 
 ---
 

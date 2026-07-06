@@ -93,6 +93,8 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 | `CONTRIBUTING.md` | Human | Project start | As needed | No |
 | `LICENSE` | Human | Project start | Never | No |
 | `.gitignore` | Human | Project start | Rarely | No |
+| `AGENTS.md` | Human | Project start | As needed | **Yes** — copy to new projects |
+| `RISK.md` | AI | After initiation | Continuously | No |
 | `.ai/scripts/security_check.ps1` | AI (scaffold) | After initiation | Rarely | Copy to projects |
 | `.ai/scripts/validate_refs.ps1` | AI (scaffold) | After initiation | Rarely | Copy to projects |
 | `.github/workflows/security.yml` | AI (scaffold) | After initiation | Rarely | Copy to projects |
@@ -231,6 +233,7 @@ The active task list. Contains:
 - Task status (pending, in-progress, completed, blocked, cancelled)
 - Priority assignments
 - **Acceptance Criteria** per task (Given/When/Then format) — defined during Stage 1 (Planning), validated during Stage 3 (Implementation) and Stage 4 (Review)
+- **Technical Debt** section — tracks shortcuts, workarounds, and deprecated patterns for scheduled resolution
 
 ### ROADMAP.md
 
@@ -239,6 +242,14 @@ Long-term strategic plan. Contains milestones, estimated timelines, and dependen
 ### CHANGELOG.md
 
 Chronological record of meaningful changes. Follows [Keep a Changelog](https://keepachangelog.com/) convention. Updated by the AI after every change.
+
+### AGENTS.md
+
+The "welcome mat." Provides a quick-start guide for new AI models or developers joining the project. Lists key files to read first, project overview, and critical context. Read at the start of every session before any other file.
+
+### RISK.md
+
+The "what could go wrong." Tracks project risks with probability, impact, mitigation, and status. Maintained continuously — updated when new risks emerge, risks materialize, or mitigations change.
 
 ### README.md
 
@@ -406,13 +417,15 @@ git push origin feature/my-feature
 
 ## Risk Management
 
-### Risk Register Format
+### Risk Register
 
-Each risk is tracked in PROJECT.md with:
+Risks are tracked in `RISK.md` with:
 
 | ID | Risk | Probability | Impact | Mitigation | Status |
 |----|------|-----------|--------|------------|--------|
 | R-001 | Third-party API deprecation | Medium | High | Abstract API layer, monitor changelogs | Active |
+
+See `.ai/TEMPLATES/RISK_TEMPLATE.md` for the full format. During initiation (Stage 0.2), initial risks from PROJECT.md are transferred to RISK.md.
 
 ### Review Cadence
 
@@ -518,6 +531,7 @@ See `.ai/TEMPLATES/ADR_TEMPLATE.md`.
 Additional templates available in `.ai/TEMPLATES/`:
 - `CONVENTIONS_TEMPLATE.md` — coding conventions starter (includes Stage/Milestone terminology rule)
 - `GLOSSARY_TEMPLATE.md` — glossary starter
+- `POSTMORTEM_TEMPLATE.md` — structured post-incident analysis
 - `OPENCODE_CONFIG_TEMPLATE.json` — OpenCode integration
 
 ---

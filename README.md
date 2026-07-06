@@ -46,6 +46,8 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 | `AI_SDLC.md` | Methodology manifesto & user guide |
 | `CONTRIBUTING.md` | Contribution guidelines |
 | `LICENSE` | MIT license |
+| `AGENTS.md` | AI onboarding — read first in every session |
+| `RISK.md` | Risk register — active, mitigated, closed risks |
 
 ### `.ai/` Directory
 
@@ -58,6 +60,7 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 | `TEMPLATES/` | Starter templates for VISION.md, ADR, CONVENTIONS, GLOSSARY, opencode.json |
 | `scripts/security_check.ps1` | Pre-commit secret scanner |
 | `scripts/validate_refs.ps1` | Cross-reference link checker |
+| `TEMPLATES/POSTMORTEM_TEMPLATE.md` | Post-incident analysis template |
 
 ## License
 

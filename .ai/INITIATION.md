@@ -46,7 +46,7 @@
 | **Technical Stack** | Languages, frameworks, databases, hosting, third-party services. If unsure, propose options with tradeoffs. |
 | **Milestones & Timeline** | Major milestones with estimated durations. |
 | **Success Criteria & KPIs** | How do we know we are done? |
-| **Known Risks & Mitigations** | What could go wrong? Backup plans? |
+| **Known Risks & Mitigations** | What could go wrong? Backup plans? These will be transferred to RISK.md during initiation. |
 
 ### Guardrails
 
@@ -105,6 +105,7 @@ Identify dependencies between milestones.
 | `CHANGELOG.md` | First entry: "Initialized project" |
 | `README.md` | Setup instructions, prerequisites, quick start |
 | `.gitignore` | Standard ignores for the tech stack |
+| `RISK.md` | Transfer risks from PROJECT.md into structured format |
 
 ### Scaffold
 
