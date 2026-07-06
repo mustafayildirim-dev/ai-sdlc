@@ -37,70 +37,70 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 
 ## Techniques & Principles
 
-### 🔄 Workflow (İş Akışı)
+### 🔄 Workflow
 
 | Technique | Purpose |
 |-----------|---------|
-| **Stage Gate Model** | 6 stage'in entry/exit kriterleriyle kalite kontrolü |
-| **Stage Triggers** | İnsan komutunu stage'e eşleyen 9 kural (RULES.md §7.1-7.9) |
-| **Session Lifecycle** | Oturum açılış sırası, trigger mapping, kapanış protokolü |
-| **Plan Mode** | Her iş öncesi salt-okunur keşif aşaması — anlamadan dokunma |
-| **Reverse Brief** | AI'nın görev anlayışını insana teyit ettirmesi |
-| **Acceptance Criteria (Given/When/Then)** | Her task için test edilebilir kabul kriterleri |
-| **Definition of Done** | 9 maddelik tamamlanma kontrol listesi |
+| **Stage Gate Model** | 6 stages with entry/exit criteria for quality control |
+| **Stage Triggers** | Maps human commands to stages — 9 rules (RULES.md §7.1-7.9) |
+| **Session Lifecycle** | Session open sequence, trigger mapping, close protocol |
+| **Plan Mode** | Read-only exploration before any task — understand before touching |
+| **Reverse Brief** | AI restates task understanding for human confirmation |
+| **Acceptance Criteria (Given/When/Then)** | Testable conditions for every task |
+| **Definition of Done** | 9-item completion checklist |
 
-### ✅ Quality (Kalite)
-
-| Technique | Purpose |
-|-----------|---------|
-| **Verification Loop** | Change → Verify → Fix → Repeat kapalı döngüsü |
-| **Adversarial Review** | AI'nın kendi kodunu şişkinlik/kopya/abstraction/edge-case açısından eleştirmesi |
-| **Empty Box Detection** | Satisficing önleme — yüzeyel implementasyonları yakalama |
-| **Self-Review Checklist** | 6 kriter (correctness, completeness, consistency, security, performance, 3-layer) |
-| **Three-Layer Consistency** | Data / Controller / View katmanlarının senkronizasyonu |
-| **AI Plan Reviewer** | İkinci AI'ın planı incelemesi (gaps, inconsistency, over-engineering) |
-| **AI Code Reviewer** | İkinci AI'ın kodu incelemesi (bugs, error handling, test coverage, security) |
-| **User Verification Gate** | Kullanıcıya senaryo sunup geribildirim bekleme |
-| **Functional Walkthrough** | AI'nın her kabul kriterini kanıtla göstermesi |
-
-### 🔧 Debugging & Maintenance (Hata Ayıklama & Bakım)
+### ✅ Quality
 
 | Technique | Purpose |
 |-----------|---------|
-| **Debugging Protocol** | Teşhis ve çözümü ayıran yapılandırılmış protokol (D.1-D.4) |
-| **Context Rot Management** | Uzun oturumlarda kalite düşüşünü önleme |
-| **Technical Debt Tracking** | TASKS.md'de ayrılmış backlog, her retrospective'de gözden geçirme |
-| **Post-Mortem Process** | Olay sonrası yapılandırılmış analiz (template ile) |
-| **Migration Plan Requirement** | Schema değişikliklerinde forward/rollback plan zorunluluğu |
+| **Verification Loop** | Closed feedback cycle: Change → Verify → Fix → Repeat |
+| **Adversarial Review** | AI self-critiques its own code for bloat, duplication, brittle abstractions, edge cases |
+| **Empty Box Detection** | Anti-satisficing — catch superficial implementations that lack real functionality |
+| **Self-Review Checklist** | 6 criteria: correctness, completeness, consistency, security, performance, 3-layer |
+| **Three-Layer Consistency** | Verify Data / Controller / View layers are in sync after every change |
+| **AI Plan Reviewer** | Second AI reviews plans for gaps, inconsistency, over-engineering |
+| **AI Code Reviewer** | Second AI reviews code for bugs, error handling, test coverage, security |
+| **User Verification Gate** | Present test scenarios to human and wait for feedback |
+| **Functional Walkthrough** | AI demonstrates each acceptance criterion with evidence |
 
-### 📚 Continuity & Documentation (Süreklilik & Dokümantasyon)
-
-| Technique | Purpose |
-|-----------|---------|
-| **Model Continuity System** | CONVENTIONS.md + TASKS.md + CHANGELOG.md ile model değişimlerinde kesintisiz geçiş |
-| **Session Summary Protocol** | Her oturum sonu zorunlu özet |
-| **ADR (Architecture Decision Records)** | Kararların yapılandırılmış dokümantasyonu |
-| **Change Impact Tracing** | Dosya taşıma/silme öncesi referans taraması |
-| **Cross-Reference Verification** | Tüm .md referanslarının otomatik doğrulaması |
-| **Example File Reference Pattern** | `file_path:line` formatı standardı |
-| **Prompt Structure** | Goal + Constraints + Verification + Process formatı |
-
-### 🔒 Security & Governance (Güvenlik & Yönetişim)
+### 🔧 Debugging & Maintenance
 
 | Technique | Purpose |
 |-----------|---------|
-| **Security Scan Gate** | Pre-commit zorunlu secret taraması |
-| **Git Branch Strategy** | feature/fix/docs/chore/explore branch modeli |
-| **Conventional Commits** | feat/fix/docs/style/refactor/test/chore formatı |
-| **Checkpoint Git Workflow** | `explore/` branch'inde checkpoint commit → squash → merge |
-| **Multi-Model Strategy** | Frontier/Standard/Light tier assignment |
+| **Debugging Protocol** | Separate diagnosis from fixing in fresh conversations (D.1-D.4) |
+| **Context Rot Management** | Prevent quality degradation in long sessions; fresh sessions for debugging |
+| **Technical Debt Tracking** | Dedicated backlog in TASKS.md, reviewed every retrospective |
+| **Post-Mortem Process** | Structured incident analysis using a template |
+| **Migration Plan Requirement** | Schema changes require forward/rollback plan approved by human |
 
-### 🧠 Meta-Process (Süreç İyileştirme)
+### 📚 Continuity & Documentation
 
 | Technique | Purpose |
 |-----------|---------|
-| **Meta-Mode Awareness** | AI'nın metodolojiyi inşa mı yoksa kullan mı ettiğini bilmesi |
-| **Question the Process** | AI'nın verimsiz adımları sorgulama yetkisi |
+| **Model Continuity System** | CONVENTIONS.md + TASKS.md + CHANGELOG.md enable seamless model switching |
+| **Session Summary Protocol** | Mandatory summary at every session end |
+| **ADR (Architecture Decision Records)** | Structured documentation of every decision |
+| **Change Impact Tracing** | Scan all references before renaming, moving, or deleting files |
+| **Cross-Reference Verification** | Auto-validate all .md file references |
+| **Example File Reference Pattern** | Standard `file_path:line` format for all cross-references |
+| **Prompt Structure** | Every prompt: Goal + Constraints + Verification + Process |
+
+### 🔒 Security & Governance
+
+| Technique | Purpose |
+|-----------|---------|
+| **Security Scan Gate** | Mandatory pre-commit secret scanning |
+| **Git Branch Strategy** | feature/fix/docs/chore/explore branch model |
+| **Conventional Commits** | feat/fix/docs/style/refactor/test/chore format |
+| **Checkpoint Git Workflow** | `explore/` branches with checkpoint commits, squashed before merge |
+| **Multi-Model Strategy** | Frontier/Standard/Light tier assignment per task type |
+
+### 🧠 Meta-Process
+
+| Technique | Purpose |
+|-----------|---------|
+| **Meta-Mode Awareness** | AI knows whether it is building the methodology or using it |
+| **Question the Process** | AI is empowered to flag and suggest improvements to inefficient steps |
 
 ## System Files
 
