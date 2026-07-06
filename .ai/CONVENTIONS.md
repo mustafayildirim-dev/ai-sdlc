@@ -23,6 +23,7 @@
 | **Functional Walkthrough** | AI demonstrates each acceptance criterion with evidence (request/response, UI state, CLI output) after implementation. | WORKFLOW.md Step 3.4 |
 | **Session-End Auto-Commit** | AI stages all changes, runs security scan, writes a Conventional Commit, and commits at session end. Push requires human approval. Each commit represents one session's logical work unit. | RULES.md 6.7, WORKFLOW.md SESSION END |
 | **Acceptance Walkthrough Scenarios** | Step-by-step user-facing test scenarios written per task during planning. AI follows them during Functional Walkthrough (3.4); the human follows them independently during User Verification Gate (4.2). | WORKFLOW.md Step 1.2, CONVENTIONS.md |
+| **License File** | Every public GitHub project must have a LICENSE file. Choose MIT (permissive, recommended), Apache 2.0 (patent protection), or GPL-3.0 (copyleft) during initiation. | INITIATION.md, .ai/TEMPLATES/LICENSE_*.md |
 
 ### Rules
 
@@ -52,6 +53,20 @@ Scenarios are stored in TASKS.md under the task, after Acceptance Criteria:
 - Human follows them independently during **Stage 4.2 (User Verification Gate)** to confirm pass/fail
 - Skip scenarios only for infrastructure / refactoring / backend-only tasks
 - Each scenario must be a concrete sequence of user actions, not technical steps
+
+## License File
+
+Every public GitHub project should have a `LICENSE` file in the project root. The license is chosen during **Stage 0 (Initiation)** before publishing to GitHub.
+
+Recommended licenses (by project type):
+
+| License | Best For | Restriction Level |
+|---------|----------|-------------------|
+| **MIT** | Most projects — libraries, tools, methodologies | Permissive (attribution only) |
+| **Apache 2.0** | Corporate projects, patent concerns | Permissive + patent grant |
+| **GPL-3.0** | Copyleft intent, community projects | Copyleft (derivatives must stay open) |
+
+Templates are in `.ai/TEMPLATES/LICENSE_{MIT,APACHE,GPL}.md`. Copy the selected template to the project root, replace `{{year}}` and `{{project_name}}`, then commit.
 
 ## Acceptance Criteria Format
 

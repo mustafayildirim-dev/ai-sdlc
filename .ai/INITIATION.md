@@ -133,6 +133,14 @@ Present a summary to the human:
 - Milestone plan (key milestones with dates)
 - Next immediate step
 - Any decisions needing human input
+- Choose a license before publishing. Ask:
+  "Which license would you like to use?
+  - **MIT** (Recommended for most projects) — Permissive, widely adopted, allows commercial use with attribution. Best for libraries, tools, and methodology projects.
+  - **Apache 2.0** — Permissive with patent protection. Best for corporate projects or projects with patent concerns.
+  - **GPL-3.0** — Copyleft, derivatives must stay open source. Best if you want to ensure all modifications remain free.
+  - **None** — No license, all rights reserved."
+  - Copy the selected license template from `.ai/TEMPLATES/LICENSE_{MIT,APACHE,GPL}.md` to `LICENSE`, replacing `{{year}}` and `{{project_name}}`
+  - `git add LICENSE` + `git commit -m "docs: add LICENSE"`
 - Ask: "Would you like to publish this project to GitHub?"
   - If **yes**: guide the human to create a repo on github.com, then:
     ```
