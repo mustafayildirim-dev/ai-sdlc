@@ -172,6 +172,11 @@ Step 1.2: Plan This Iteration
   │   ├── Bug fix → plan reproduction + confirmation steps
   │   └── Infra / refactor / backend-only → no user verify needed
   ├── If user-verify needed, add "Verify with user" sub-task to TASKS.md
+  ├── For each user-facing or business-logic task, write Walkthrough Scenarios:
+  │   ├── Step-by-step user actions ("Open page → click X → expect Y")
+  │   ├── Store in TASKS.md under the task, after Acceptance Criteria
+  │   ├── Keep concrete and independent — no technical setup steps
+  │   └── Skip for infra / refactor / backend-only tasks
   ├── Group related tasks into check-points for targeted user testing between milestones
   ├── Assess architectural impact of selected tasks
   ├── Identify dependencies and risks
@@ -265,9 +270,10 @@ Step 3.3: Verify (Verification Loop)
       (The verification loop closes automatically: change → check → read result → fix → repeat)
 
 Step 3.4: Functional Walkthrough
-  ├── For each implemented task, demonstrate the behavior:
-  │   ├── "I started the server and tested [endpoint/feature]. Actual result:"
-  │   ├── Show request/response, UI state, or CLI output
+  ├── For each implemented task, read Walkthrough Scenarios from TASKS.md
+  ├── Demonstrate the behavior following each scenario in order:
+  │   ├── "I performed step 1: clicked X. Result: Y"
+  │   ├── Show request/response, UI state, or CLI output for each step
   │   ├── Walk through each acceptance criterion, confirming pass/fail
   │   └── If behavior does not match → fix before proceeding
   ├── For user-facing changes: prepare walkthrough scenarios for human review
@@ -329,11 +335,10 @@ Step 4.1: Self-Review
 
 Step 4.2: User Verification Gate (if user-verify sub-tasks exist)
   ├── Check TASKS.md for pending "Verify with user" sub-tasks
-  ├── Prepare specific test scenarios for each user-facing change
-  │   ├── "Try clicking X, expect Y to happen"
-  │   ├── "Enter Z input, expect W output"
-  │   └── "Confirm this matches the expected behavior from PROJECT.md"
-  ├── Present scenarios to human: "Please test these and share feedback"
+  ├── Read Walkthrough Scenarios from TASKS.md for each completed task
+  ├── Present scenarios to human: "Please follow these steps and report pass/fail"
+  │   ├── Include the exact actions and expected outcomes from each scenario
+  │   └── Human tests independently — no AI assistance during testing
   ├── Wait for feedback before marking completion
   └── If feedback reveals issues → loop back to Stage 2/3
 

@@ -22,6 +22,7 @@
 | **Reverse Brief** | AI restates its understanding of a task (goal, edge cases, definition of done) for human confirmation before starting work. Catches misalignment early. | WORKFLOW.md Step 1.2 |
 | **Functional Walkthrough** | AI demonstrates each acceptance criterion with evidence (request/response, UI state, CLI output) after implementation. | WORKFLOW.md Step 3.4 |
 | **Session-End Auto-Commit** | AI stages all changes, runs security scan, writes a Conventional Commit, and commits at session end. Push requires human approval. Each commit represents one session's logical work unit. | RULES.md 6.7, WORKFLOW.md SESSION END |
+| **Acceptance Walkthrough Scenarios** | Step-by-step user-facing test scenarios written per task during planning. AI follows them during Functional Walkthrough (3.4); the human follows them independently during User Verification Gate (4.2). | WORKFLOW.md Step 1.2, CONVENTIONS.md |
 
 ### Rules
 
@@ -29,6 +30,28 @@
 - In TASKS.md, group tasks under `## Milestone N — Title`.
 - In CHANGELOG.md, use `### Milestone N — Title` for milestone completions.
 - In ROADMAP.md, use `| Milestone | Title | Duration | ... |`.
+
+## Acceptance Walkthrough Scenarios
+
+During Stage 1 (Planning), for each user-facing or business-logic task, write step-by-step scenarios that a human can execute independently to verify the feature works.
+
+Scenarios are stored in TASKS.md under the task, after Acceptance Criteria:
+
+```markdown
+### 4.1 Implement Inbox
+- **Status:** pending
+- **Acceptance Criteria:**
+  - [ ] **Given** a user opens the inbox page, **when** no messages exist, **then** "No messages" placeholder is shown
+- **Walkthrough Scenarios:**
+  1. Clear your inbox → refresh the page → expect "No messages" placeholder
+  2. Compose a message with valid fields → click Send → open Sent folder → message appears → switch to recipient account → open Inbox → message appears
+```
+
+- Write scenarios during **Stage 1 (Planning)** alongside Acceptance Criteria
+- AI follows them during **Stage 3.4 (Functional Walkthrough)** to demonstrate behavior
+- Human follows them independently during **Stage 4.2 (User Verification Gate)** to confirm pass/fail
+- Skip scenarios only for infrastructure / refactoring / backend-only tasks
+- Each scenario must be a concrete sequence of user actions, not technical steps
 
 ## Acceptance Criteria Format
 

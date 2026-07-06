@@ -60,6 +60,7 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 | **Three-Layer Consistency** | Verify Data / Controller / View layers are in sync after every change |
 | **AI Plan Reviewer** | Second AI reviews plans for gaps, inconsistency, over-engineering |
 | **AI Code Reviewer** | Second AI reviews code for bugs, error handling, test coverage, security |
+| **Acceptance Walkthrough Scenarios** | Step-by-step user test scenarios written per task in planning; AI demonstrates in 3.4, human verifies independently in 4.2 |
 | **User Verification Gate** | Present test scenarios to human and wait for feedback |
 | **Functional Walkthrough** | AI demonstrates each acceptance criterion with evidence |
 
