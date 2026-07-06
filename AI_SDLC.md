@@ -12,10 +12,10 @@ AI-SDLC is not about replacing developers. It is about creating a structured par
 
 Most AI-assisted projects fail not because the AI is incapable, but because the human does not know how to direct it effectively. AI-SDLC solves this by providing:
 
-1. **A shared mental model** — Both human and AI know what to expect at each phase
+1. **A shared mental model** — Both human and AI know what to expect at each stage
 2. **Persistence of context** — Knowledge survives across sessions and model switches
 3. **Progressive elaboration** — Requirements start vague and become precise through structured iteration
-4. **Built-in quality gates** — Every phase has entry and exit criteria
+4. **Built-in quality gates** — Every stage has entry and exit criteria
 
 ---
 
@@ -29,7 +29,7 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 | **Iterative Refinement** | Requirements evolve through structured interviews, not guesswork |
 | **Traceability** | Every decision has a recorded rationale (Architecture Decision Records) |
 | **Model Agnostic** | The system works with any AI model; conventions ensure consistency across model switches |
-| **Gate-Based Progress** | Work moves through defined phases with explicit completion criteria |
+| **Gate-Based Progress** | Work moves through defined stages with explicit completion criteria |
 
 ---
 
@@ -138,7 +138,7 @@ For daily development, just tell the AI what to do:
 > **"Fix the database connection error."**
 > **"Add unit tests for the payment service."**
 
-The AI reads RULES.md and WORKFLOW.md at session start, follows Phase 1→4, and updates all documentation automatically.
+The AI reads RULES.md and WORKFLOW.md at session start, follows Stage 1→4, and updates all documentation automatically.
 
 ### Step 6: Evaluate Project Health
 
@@ -147,7 +147,7 @@ Periodically check project integrity:
 > **"Evaluate the project health."**
 > **"Run a project audit."**
 
-The AI executes **Phase 6 (Project Evaluation)** — file inventory, cross-reference audit, consistency checks, risk review, and a health score. Review and address the action items.
+The AI executes **Stage 6 (Project Evaluation)** — file inventory, cross-reference audit, consistency checks, risk review, and a health score. Review and address the action items.
 
 ### Optional: Configure OpenCode
 
@@ -191,11 +191,11 @@ The "how to behave." Immutable behavioral directives for the AI. Never modified 
 
 ### WORKFLOW.md
 
-The "how to work." The step-by-step process the AI follows in every session. Includes session lifecycle, phase triggers, Phase 1-5 (Planning through Retrospective), and git workflow. Read every session after initialization.
+The "how to work." The step-by-step process the AI follows in every session. Includes session lifecycle, stage triggers, Stage 1-5 (Planning through Retrospective), and git workflow. Read every session after initialization.
 
 ### INITIATION.md
 
-The "how to get started." Used only once per project. Contains Phase 0: Ideation (interviewing the human to create PROJECT.md) and Phase 0: Initiation (designing architecture, planning, scaffolding). Read only when PROJECT.md does not exist.
+The "how to get started." Used only once per project. Contains Stage 0: Ideation (interviewing the human to create PROJECT.md) and Stage 0: Initiation (designing architecture, planning, scaffolding). Read only when PROJECT.md does not exist.
 
 ### ARCHITECTURE.md
 
@@ -229,7 +229,7 @@ The active task list. Contains:
 
 ### ROADMAP.md
 
-Long-term strategic plan. Contains milestones, phases, estimated timelines, and dependencies. Updated at the end of each milestone.
+Long-term strategic plan. Contains milestones, estimated timelines, and dependencies. Updated at the end of each milestone.
 
 ### CHANGELOG.md
 
@@ -241,7 +241,7 @@ The public face of the project. Contains setup instructions, usage examples, and
 
 ---
 
-## Phase Gate Model
+## Stage Gate Model
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -265,7 +265,7 @@ The public face of the project. Contains setup instructions, usage examples, and
 │  └────────────────────────────────────────────────────────────┘ │
 │                                                                 │
 │  ┌────────────────────────────────────────────────────────────┐ │
-│  │                PHASE 6: EVALUATION                          │ │
+│  │                STAGE 6: EVALUATION                          │ │
 │  │  File inventory, cross-ref audit, risk review, health score│ │
 │  └────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────┘
@@ -424,7 +424,7 @@ Each risk is tracked in PROJECT.md with:
 
 ### Tracking
 
-TASKS.md tracks completion. CHANGELOG.md tracks changes. The Retrospective phase reviews metrics and identifies improvements.
+TASKS.md tracks completion. CHANGELOG.md tracks changes. The Retrospective stage reviews metrics and identifies improvements.
 
 ---
 
@@ -458,10 +458,10 @@ TASKS.md tracks completion. CHANGELOG.md tracks changes. The Retrospective phase
 A: Yes. The system is designed to be model-agnostic. It works with Claude, GPT, OpenCode, and any other conversational AI that can read files and execute commands.
 
 **Q: Do I need to create all the files manually?**
-A: No. VISION.md is the only file you need to write. RULES.md, WORKFLOW.md, and INITIATION.md are copied from the template. The rest are created by the AI during the Ideator and Initiator phases.
+A: No. VISION.md is the only file you need to write. RULES.md, WORKFLOW.md, and INITIATION.md are copied from the template. The rest are created by the AI during the Ideator and Initiator stages.
 
 **Q: How long does setup take?**
-A: Copying `.ai/` to a new project takes 1 minute. Each new project takes 1-2 hours for the Ideator + Initiator phases.
+A: Copying `.ai/` to a new project takes 1 minute. Each new project takes 1-2 hours for the Ideator + Initiator stages.
 
 **Q: Can multiple developers use this system?**
 A: Yes. The system is designed for teams. The documentation provides a shared context that all team members and AI assistants operate from.
@@ -505,7 +505,7 @@ A: You approve every AI output before it's finalized. The Ideator presents PROJE
 See `.ai/TEMPLATES/ADR_TEMPLATE.md`.
 
 Additional templates available in `.ai/TEMPLATES/`:
-- `CONVENTIONS_TEMPLATE.md` — coding conventions starter
+- `CONVENTIONS_TEMPLATE.md` — coding conventions starter (includes Stage/Milestone terminology rule)
 - `GLOSSARY_TEMPLATE.md` — glossary starter
 - `OPENCODE_CONFIG_TEMPLATE.json` — OpenCode integration
 

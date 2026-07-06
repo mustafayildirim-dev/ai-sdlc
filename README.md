@@ -28,7 +28,7 @@ Copy the entire `.ai/` directory (containing RULES.md, WORKFLOW.md, INITIATION.m
 1. Write VISION.md               → 5 minutes
 2. Tell AI: "Run the ideator"    → AI interviews you, creates PROJECT.md
 3. Tell AI: "Initialize project" → AI scaffolds code, creates plans
-4. Tell AI: "Implement X"        → AI follows workflow phases
+4. Tell AI: "Implement X"        → AI follows workflow stages
 ```
 
 No copy-paste needed. The AI reads RULES.md and WORKFLOW.md directly.
@@ -51,7 +51,7 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 |------|---------|
 | `RULES.md` | AI behavioral rules — reusable across projects |
 | `WORKFLOW.md` | AI workflow process — reusable across projects (read every session) |
-| `INITIATION.md` | Phase 0: Ideation & Initiation — only read during project setup |
+| `INITIATION.md` | Stage 0: Ideation & Initiation — only read during project setup |
 | `TEMPLATES/VISION_TEMPLATE.md` | Template for creating VISION.md |
 
 ## License

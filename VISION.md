@@ -2,7 +2,7 @@
 
 ## Elevator Pitch
 
-AI-SDLC is a structured methodology that enables developers to build production-grade software with AI assistance by providing a shared context system, phase-gated workflows, and model-agnostic continuity.
+AI-SDLC is a structured methodology that enables developers to build production-grade software with AI assistance by providing a shared context system, stage-gated workflows, and model-agnostic continuity.
 
 ## Problem Statement
 
@@ -19,7 +19,7 @@ Most AI-assisted software projects fail to reach production quality not because 
 
 Unlike ad-hoc prompting, AI-SDLC provides a complete Software Development Lifecycle adapted for human-AI collaboration:
 - **Persistence**: Context survives across sessions and model switches
-- **Structure**: Clear phases with entry/exit criteria prevent chaos
+- **Structure**: Clear stages with entry/exit criteria prevent chaos
 - **Quality**: Built-in gates ensure production-grade output
 - **Reusability**: RULES.md and WORKFLOW.md work across any project
 - **Traceability**: Every decision is recorded; nothing is lost

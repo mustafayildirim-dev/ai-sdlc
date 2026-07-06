@@ -1,6 +1,6 @@
 # Project Initiation Guide
 
-> Phase 0 of the AI-SDLC workflow. Read this file only when PROJECT.md does not exist (starting a new project).
+> Stage 0 of the AI-SDLC workflow. Read this file only when PROJECT.md does not exist (starting a new project).
 > Once the project is initialized, this file is no longer needed.
 
 ---
@@ -44,14 +44,14 @@
 | **Core Features (MVP)** | What is the minimum set to launch? |
 | **Future Features** | What comes after MVP? |
 | **Technical Stack** | Languages, frameworks, databases, hosting, third-party services. If unsure, propose options with tradeoffs. |
-| **Milestones & Timeline** | Major phases with estimated durations. |
+| **Milestones & Timeline** | Major milestones with estimated durations. |
 | **Success Criteria & KPIs** | How do we know we are done? |
 | **Known Risks & Mitigations** | What could go wrong? Backup plans? |
 
 ### Guardrails
 
 - Do **NOT** write any code or create any project files yet
-- This is a **discovery phase only** — no implementation
+- This is a **discovery stage only** — no implementation
 - If the human gives vague answers, **push for specifics** with examples
 - If the human mentions unfamiliar technical details, **ask clarifying questions**
 
@@ -94,7 +94,7 @@ milestone → feature → task
 Each task should be small enough to complete in one session.
 
 Create **ROADMAP.md** with milestones, targets, and duration estimates.
-Identify dependencies between phases.
+Identify dependencies between milestones.
 
 ### Create Supporting Files
 

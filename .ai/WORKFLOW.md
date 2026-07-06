@@ -3,7 +3,7 @@
 > **Meta-project notice:** This file is a DELIVERABLE of the AI-SDLC methodology project. It is NOT an instruction set for the AI building this methodology. In a user project, copy this file into `.ai/` and it will serve as the AI workflow process.
 >
 > The step-by-step process the AI follows during project execution.
-> Copy this file to every new AI-SDLC project. Adjust phase details as needed per project.
+> Copy this file to every new AI-SDLC project. Adjust stage details as needed per project.
 
 ---
 
@@ -29,17 +29,17 @@ Every AI session follows this lifecycle:
                     │
                     ▼
 ┌─────────────────────────────────────────────────────┐
-│           TRIGGER (map human request to phase)       │
+│           TRIGGER (map human request to stage)       │
 │                                                      │
 │  "start a project" / "ideate"  →  INITIATION.md     │
 │  "initiate" / "initialize"     →  INITIATION.md     │
-│  "implement X" / "fix Y"       →  Phase 1 → 4       │
-│  Other development task        →  Phase 1 → 4       │
+│  "implement X" / "fix Y"       →  Stage 1 → 4       │
+│  Other development task        →  Stage 1 → 4       │
 └───────────────────┬─────────────────────────────────┘
                     │
                     ▼
 ┌─────────────────────────────────────────────────────┐
-│           EXECUTE (follow triggered phase)           │
+│           EXECUTE (follow triggered stage)           │
 └───────────────────┬─────────────────────────────────┘
                     │
                     ▼
@@ -57,12 +57,12 @@ Every AI session follows this lifecycle:
 
 ---
 
-## Phase 1: Planning
+## Stage 1: Planning
 
 *At the start of each iteration.*
 
 ### Entry Criteria
-- [ ] Project is initialized (INITIATION.md phase is complete)
+- [ ] Project is initialized (INITIATION.md stage is complete)
 - [ ] TASKS.md has backlog items or milestones defined
 
 ### Process
@@ -97,7 +97,7 @@ Step 1.2: Plan This Iteration
 
 ---
 
-## Phase 2: Design
+## Stage 2: Design
 
 *Before writing any code, design the solution.*
 
@@ -138,7 +138,7 @@ Step 2.3: Plan Implementation
 
 ---
 
-## Phase 3: Implementation
+## Stage 3: Implementation
 
 *Write the code.*
 
@@ -176,7 +176,7 @@ Step 3.3: Verify
 
 ---
 
-## Phase 4: Review
+## Stage 4: Review
 
 *Quality assurance and documentation.*
 
@@ -203,7 +203,7 @@ Step 4.2: User Verification Gate (if user-verify sub-tasks exist)
   │   └── "Confirm this matches the expected behavior from PROJECT.md"
   ├── Present scenarios to human: "Please test these and share feedback"
   ├── Wait for feedback before marking completion
-  └── If feedback reveals issues → loop back to Phase 2/3
+  └── If feedback reveals issues → loop back to Stage 2/3
 
 Step 4.3: Update Documentation
   ├── Update CHANGELOG.md (add entry for this change)
@@ -236,7 +236,7 @@ Step 4.6: Cross-Reference Verification
 
 ---
 
-## Phase 5: Retrospective
+## Stage 5: Retrospective
 
 *Periodic reflection and improvement.*
 
@@ -280,7 +280,7 @@ Step 5.3: Plan Ahead
 
 ---
 
-## Phase 6: Project Evaluation
+## Stage 6: Project Evaluation
 
 *Project health assessment and integrity audit. Can be run at any time — not just at milestone boundaries.*
 

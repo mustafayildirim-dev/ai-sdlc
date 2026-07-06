@@ -67,20 +67,20 @@
 | 6.4 | Write commit messages that explain **what and why**, not how. |
 | 6.5 | Never commit **secrets, API keys, passwords, or sensitive data**. Run `.ai/scripts/security_check.ps1` on staged files before every commit. If the scan detects potential secrets, block the commit and flag it immediately. |
 
-## 7. Phase Triggers
+## 7. Stage Triggers
 
-*These rules map human commands to the appropriate workflow phase.*
+*These rules map human commands to the appropriate workflow stage.*
 
 | # | Rule |
 |---|------|
 | 7.1 | When **PROJECT.md does not exist** and the human mentions starting a project, propose running **Ideation** from INITIATION.md. |
 | 7.2 | When the human says **"ideate"**, **"run the ideator"**, or **"interview me"**, execute **Step 0.2 (Ideation)** from INITIATION.md. |
 | 7.3 | When the human says **"initiate"**, **"initialize"**, **"start the project"**, or **"scaffold"**, execute **Step 0.3 (Initiation)** from INITIATION.md. |
-| 7.4 | When the human gives a **development task** ("implement X", "fix Y", "add feature Z"), execute **Phase 1 → Phase 4** from WORKFLOW.md. |
-| 7.5 | When the human says **"review"** or **"retrospective"**, execute **Phase 4 (Review)** or **Phase 5 (Retrospective)** accordingly. |
-| 7.6 | When the human says **"summarize"** or **"what's the status"**, provide a concise summary from TASKS.md and CHANGELOG.md without executing any phase. |
-| 7.7 | When the human says **"proceed"**, **"approved"**, **"continue"**, or **"execute"**, check TASKS.md and CHANGELOG.md to determine the current phase, then resume from where the last session left off. Do NOT restart from Phase 1 unless the context indicates new work. |
-| 7.8 | When the human says **"evaluate"**, **"health check"**, **"project audit"**, or **"project status"**, execute **Phase 6 (Project Evaluation)** from WORKFLOW.md. |
+| 7.4 | When the human gives a **development task** ("implement X", "fix Y", "add feature Z"), execute **Stage 1 → Stage 4** from WORKFLOW.md. |
+| 7.5 | When the human says **"review"** or **"retrospective"**, execute **Stage 4 (Review)** or **Stage 5 (Retrospective)** accordingly. |
+| 7.6 | When the human says **"summarize"** or **"what's the status"**, provide a concise summary from TASKS.md and CHANGELOG.md without executing any stage. |
+| 7.7 | When the human says **"proceed"**, **"approved"**, **"continue"**, or **"execute"**, check TASKS.md and CHANGELOG.md to determine the current stage, then resume from where the last session left off. Do NOT restart from Stage 1 unless the context indicates new work. |
+| 7.8 | When the human says **"evaluate"**, **"health check"**, **"project audit"**, or **"project status"**, execute **Stage 6 (Project Evaluation)** from WORKFLOW.md. |
 
 ---
 
