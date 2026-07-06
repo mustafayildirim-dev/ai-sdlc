@@ -79,6 +79,7 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 | `RULES.md` | Human (AI proposes) | Project start | Rarely | **Yes** — copy to new projects |
 | `WORKFLOW.md` | Human (AI proposes) | Project start | Rarely | **Yes** — copy to new projects |
 | `INITIATION.md` | Human (AI proposes) | Project start | Rarely | **Yes** — copy to new projects |
+| `AI_SDLC.md` | Human | Project start | As methodology evolves | No |
 | `PROJECT.md` | Human + AI | After ideation | Per milestone | No |
 | `ARCHITECTURE.md` | AI | After initiation | Per significant change | No |
 | `CONVENTIONS.md` | AI | After initiation | Continuously | No |
@@ -91,8 +92,11 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 | `opencode.json` | AI (scaffold) | After initiation | Rarely | Template provided |
 | `CONTRIBUTING.md` | Human | Project start | As needed | No |
 | `LICENSE` | Human | Project start | Never | No |
+| `.gitignore` | Human | Project start | Rarely | No |
 | `.ai/scripts/security_check.ps1` | AI (scaffold) | After initiation | Rarely | Copy to projects |
+| `.ai/scripts/validate_refs.ps1` | AI (scaffold) | After initiation | Rarely | Copy to projects |
 | `.github/workflows/security.yml` | AI (scaffold) | After initiation | Rarely | Copy to projects |
+| `.github/workflows/validate.yml` | AI (scaffold) | After initiation | Rarely | Copy to projects |
 
 ---
 
@@ -191,7 +195,7 @@ The "how to behave." Immutable behavioral directives for the AI. Never modified 
 
 ### WORKFLOW.md
 
-The "how to work." The step-by-step process the AI follows in every session. Includes session lifecycle, stage triggers, Stage 1-5 (Planning through Retrospective), and git workflow. Read every session after initialization.
+The "how to work." The step-by-step process the AI follows in every session. Includes session lifecycle, stage triggers, Stage 1-6 (Planning through Evaluation), and git workflow. Read every session after initialization.
 
 ### INITIATION.md
 
@@ -288,14 +292,20 @@ The public face of the project. Contains setup instructions, usage examples, and
 - [ ] All new code has tests
 - [ ] Linting and type checks pass
 - [ ] CONVENTIONS.md is followed
-- [ ] CHANGELOG.md is updated
 
 **Review → Retrospective**
 - [ ] Code is committed
+- [ ] CHANGELOG.md is updated
 - [ ] TASKS.md is updated
 - [ ] All quality gates passed
 
-**Retrospective → Evaluation (periodic)**
+**Retrospective → Evaluation**
+- [ ] Retrospective notes recorded in DECISIONS.md
+- [ ] Process improvements proposed to human
+- [ ] ROADMAP.md and TASKS.md updated
+- [ ] New risks documented
+
+**Evaluation Done**
 - [ ] Cross-references validated
 - [ ] Consistency checks passed
 - [ ] Risk register reviewed

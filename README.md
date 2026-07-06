@@ -44,6 +44,8 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 | `VISION.md` | Product vision (you write this) |
 | `README.md` | This file — entry point |
 | `AI_SDLC.md` | Methodology manifesto & user guide |
+| `CONTRIBUTING.md` | Contribution guidelines |
+| `LICENSE` | MIT license |
 
 ### `.ai/` Directory
 
@@ -52,7 +54,10 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 | `RULES.md` | AI behavioral rules — reusable across projects |
 | `WORKFLOW.md` | AI workflow process — reusable across projects (read every session) |
 | `INITIATION.md` | Stage 0: Ideation & Initiation — only read during project setup |
-| `TEMPLATES/VISION_TEMPLATE.md` | Template for creating VISION.md |
+| `CONVENTIONS.md` | Project conventions & terminology |
+| `TEMPLATES/` | Starter templates for VISION.md, ADR, CONVENTIONS, GLOSSARY, opencode.json |
+| `scripts/security_check.ps1` | Pre-commit secret scanner |
+| `scripts/validate_refs.ps1` | Cross-reference link checker |
 
 ## License
 
