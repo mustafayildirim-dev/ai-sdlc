@@ -34,11 +34,20 @@ Every AI session follows this lifecycle:
 │  "start a project" / "ideate"  →  INITIATION.md     │
 │  "initiate" / "initialize"     →  INITIATION.md     │
 │  "analyze" / "explore" / "plan this" →  Plan Mode   │
-│  "implement X" / "fix Y"       →  Stage 1 → 4       │
-│  Other development task        →  Stage 1 → 4       │
+│  "implement" / "add feature"   →  Stage 1 → 4       │
+│  "fix" / "bug"                 →  Stage 2 → 3       │
+│  "refactor"                    →  Stage 2 → 3       │
+│  "test" / "write tests"        →  Stage 3           │
+│  "deploy" / "release"          →  Stage 4           │
+│  "post-mortem"                 →  Stage 4.7         │
+│  "document"                    →  Stage 4.3         │
+│  Other / ambiguous             →  Ask               │
 └───────────────────┬─────────────────────────────────┘
-                    │
-                    ▼
+                     │
+
+After the stage is determined, all RULES.md behavioral rules (Sections 2, 3, 6, 8, 9) apply throughout execution.
+
+                     ▼
 ┌─────────────────────────────────────────────────────┐
 │           EXECUTE (follow triggered stage)           │
 └───────────────────┬─────────────────────────────────┘

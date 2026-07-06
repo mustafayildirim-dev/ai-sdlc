@@ -75,19 +75,27 @@
 
 ## 7. Stage Triggers
 
-*These rules map human commands to the appropriate workflow stage.*
+*These rules map human commands to the appropriate workflow stage. Stage triggers determine which stage to enter. They do NOT override any other rule in this document. All quality, documentation, security, and self-review rules (Sections 2, 3, 6, 8, 9) remain in full effect during every stage.*
 
 | # | Rule |
 |---|------|
 | 7.1 | When **PROJECT.md does not exist** and the human mentions starting a project, propose running **Ideation** from INITIATION.md. |
 | 7.2 | When the human says **"ideate"**, **"run the ideator"**, or **"interview me"**, execute **Step 0.2 (Ideation)** from INITIATION.md. |
 | 7.3 | When the human says **"initiate"**, **"initialize"**, **"start the project"**, or **"scaffold"**, execute **Step 0.3 (Initiation)** from INITIATION.md. |
-| 7.4 | When the human gives a **development task** ("implement X", "fix Y", "add feature Z"), execute **Stage 1 → Stage 4** from WORKFLOW.md. |
+| 7.4 | When the human gives a **development task**, map to stages by task type: |
+|     | – **"implement X"**, **"add feature Z"** → Stage 1→4 (full planning → code) |
+|     | – **"fix X"**, **"bug in X"** → Stage 2→3 (design + code, skip planning) |
+|     | – **"refactor X"** → Stage 2→3 (design + code) |
+|     | – **"test X"**, **"write tests"** → Stage 3 (code only) |
+|     | – **"deploy X"**, **"release"** → Stage 4 (review + ship) |
+|     | – **"post-mortem for X"** → Stage 4.7 (incident analysis) |
+|     | – **"document X"** → Stage 4.3 (documentation update) |
 | 7.5 | When the human says **"review"** or **"retrospective"**, execute **Stage 4 (Review)** or **Stage 5 (Retrospective)** accordingly. |
 | 7.6 | When the human says **"summarize"** or **"what's the status"**, provide a concise summary from TASKS.md and CHANGELOG.md without executing any stage. |
 | 7.7 | When the human says **"proceed"**, **"approved"**, **"continue"**, or **"execute"**, check TASKS.md and CHANGELOG.md to determine the current stage, then resume from where the last session left off. Do NOT restart from Stage 1 unless the context indicates new work. |
 | 7.8 | When the human says **"evaluate"**, **"health check"**, **"project audit"**, or **"project status"**, execute **Stage 6 (Project Evaluation)** from WORKFLOW.md. |
 | 7.9 | When the human says **"analyze"**, **"explore"**, **"plan this"**, or **"investigate"**, enter **Plan Mode** from WORKFLOW.md. This is a read-only investigation phase. Do not modify any files without approval. |
+| 7.10 | **Fallback — ambiguous or unrecognized command.** If no other trigger matches, or if the command is ambiguous, state which interpretation you are using and ask for confirmation. Do NOT guess without asking. |
 
 ---
 
