@@ -91,7 +91,8 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 |-----------|---------|
 | **Security Scan Gate** | Mandatory pre-commit secret scanning |
 | **Git Branch Strategy** | feature/fix/docs/chore/explore branch model |
-| **Conventional Commits** | feat/fix/docs/style/refactor/test/chore format |
+| **Conventional Commits** | feat/fix/docs/style/refactor/test/chore format — auto-applied at session end |
+| **Session-End Auto-Commit** | Stage → security scan → Conventional Commit (auto). Push requires human approval |
 | **Checkpoint Git Workflow** | `explore/` branches with checkpoint commits, squashed before merge |
 | **Multi-Model Strategy** | Frontier/Standard/Light tier assignment per task type |
 
@@ -121,7 +122,7 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 
 | File | Purpose |
 |------|---------|
-| `RULES.md` | AI behavioral rules — reusable across projects |
+| `RULES.md` | AI behavioral rules — reusable across projects (includes auto-commit at session end) |
 | `WORKFLOW.md` | AI workflow process — reusable across projects (read every session) |
 | `INITIATION.md` | Stage 0: Ideation & Initiation — only read during project setup |
 | `CONVENTIONS.md` | Project conventions & terminology |

@@ -59,6 +59,9 @@ After the stage is determined, all RULES.md behavioral rules (Sections 2, 3, 6, 
 │  2. Update CHANGELOG.md (what changed)               │
 │  3. Update TASKS.md (mark complete, update status)   │
 │  4. Write session summary                            │
+│  5. Auto-commit: stage → security scan → write       │
+│     Conventional Commit → commit. Present diff to    │
+│     human for push approval.                         │
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -346,11 +349,14 @@ Step 4.4: Security Scan
   ├── If secrets detected → BLOCK commit, flag to human
   └── If clean → proceed
 
-Step 4.5: Prepare for Commit
-  ├── Review the diff (git diff)
-  ├── Confirm no secrets or debug code
-  ├── Write commit message (Conventional Commits format)
-  └── Present changes to human for approval
+Step 4.5: Prepare for Commit (auto-executed at SESSION END)
+  ├── Stage all working changes: `git add -A`
+  ├── Run security scan: `.ai/scripts/security_check.ps1`
+  ├── If secrets detected → BLOCK, flag to human, do NOT commit
+  ├── If clean → write Conventional Commit message
+  ├── Commit: `git commit -m "<type>: <description>"`
+  ├── Present diff to human: "Ready to push. Approve?"
+  └── Wait for approval before `git push`
 
 Step 4.6: Cross-Reference Verification
   ├── Search all .md files for references to changed files

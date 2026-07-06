@@ -21,6 +21,7 @@
 | **Context Rot** | Degradation of AI reasoning quality in long sessions. Mitigated by fresh sessions for debugging, breaks after 60 messages / 30 edits, and explicit signaling. | WORKFLOW.md Session Lifecycle, RULES.md 5.6 |
 | **Reverse Brief** | AI restates its understanding of a task (goal, edge cases, definition of done) for human confirmation before starting work. Catches misalignment early. | WORKFLOW.md Step 1.2 |
 | **Functional Walkthrough** | AI demonstrates each acceptance criterion with evidence (request/response, UI state, CLI output) after implementation. | WORKFLOW.md Step 3.4 |
+| **Session-End Auto-Commit** | AI stages all changes, runs security scan, writes a Conventional Commit, and commits at session end. Push requires human approval. Each commit represents one session's logical work unit. | RULES.md 6.7, WORKFLOW.md SESSION END |
 
 ### Rules
 

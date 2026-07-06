@@ -72,6 +72,7 @@
 | 6.4 | Write commit messages that explain **what and why**, not how. |
 | 6.5 | Never commit **secrets, API keys, passwords, or sensitive data**. Run `.ai/scripts/security_check.ps1` on staged files before every commit. If the scan detects potential secrets, block the commit and flag it immediately. |
 | 6.6 | Any task that changes a **database schema, data model, or API contract** MUST produce a migration plan using `.ai/TEMPLATES/MIGRATION_PLAN_TEMPLATE.md`. The plan must include: forward migration, rollback, app code changes, rollback strategy. The plan must be reviewed and approved by the human before writing any migration code. |
+| 6.7 | **Session-End Auto-Commit.** At the end of every session (SESSION END in WORKFLOW.md): stage all working changes, run the security scan, write a Conventional Commit, and commit. Do NOT push to remote without human approval — present the diff and ask. A session represents one logical work unit; do NOT create per-message commits. |
 
 ## 7. Stage Triggers
 
