@@ -226,6 +226,7 @@ The active task list. Contains:
 - Backlog items
 - Task status (pending, in-progress, completed, blocked, cancelled)
 - Priority assignments
+- **Acceptance Criteria** per task (Given/When/Then format) — defined during Stage 1 (Planning), validated during Stage 3 (Implementation) and Stage 4 (Review)
 
 ### ROADMAP.md
 

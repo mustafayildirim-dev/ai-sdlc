@@ -78,6 +78,11 @@ Step 1.1: Review Current State
 Step 1.2: Plan This Iteration
   ├── Identify the next milestone target
   ├── Select tasks for this iteration from TASKS.md
+  ├── Reverse Brief (for each selected task):
+  │   ├── "What I understand: [goal, expected behavior, key edge cases, what done looks like]"
+  │   ├── "Key decisions I see: [list of design choices I plan to make]"
+  │   └── Human confirms or clarifies → repeat until aligned ← VALIDATION GATE
+  ├── For each task, add or verify Acceptance Criteria in TASKS.md (Given/When/Then format)
   ├── For each task, classify user-verify need:
   │   ├── User-facing change (UI/UX, copy, behavior) → plan test scenarios
   │   ├── Business logic change (rules, calculations) → plan test scenarios
@@ -92,6 +97,8 @@ Step 1.2: Plan This Iteration
 
 ### Exit Criteria
 - [ ] Iteration tasks are selected and assigned in TASKS.md
+- [ ] Reverse Brief completed and confirmed by human
+- [ ] Acceptance criteria defined (Given/When/Then) for each selected task
 - [ ] Plan is reviewed and approved by human
 - [ ] Dependencies and risks are identified
 
@@ -165,11 +172,24 @@ Step 3.3: Verify
   ├── Run linter → fix all issues
   ├── Run type checker → fix all issues
   ├── Run tests → fix all failures
-  └── Run build/dev server → confirm it works
+  ├── Run build/dev server → confirm it works
+  └── Validate each acceptance criterion from TASKS.md — one by one, with evidence
+
+Step 3.4: Functional Walkthrough
+  ├── For each implemented task, demonstrate the behavior:
+  │   ├── "I started the server and tested [endpoint/feature]. Actual result:"
+  │   ├── Show request/response, UI state, or CLI output
+  │   ├── Walk through each acceptance criterion, confirming pass/fail
+  │   └── If behavior does not match → fix before proceeding
+  ├── For user-facing changes: prepare walkthrough scenarios for human review
+  ├── Note any assumptions made during implementation
+  └── Record implementation decisions in DECISIONS.md
 ```
 
 ### Exit Criteria
 - [ ] All selected tasks are implemented
+- [ ] All acceptance criteria pass (verified)
+- [ ] Functional walkthrough completed
 - [ ] Tests pass
 - [ ] Linting and type checking pass
 - [ ] No breaking changes without documentation
@@ -190,7 +210,8 @@ Step 3.3: Verify
 Step 4.1: Self-Review
   ├── Review all changed files for:
   │   ├── Correctness (does it work?)
-  │   ├── Completeness (does it cover edge cases?)
+  │   ├── Completeness (does it cover edge cases? is it more than a skeleton?)
+  │   ├── Acceptance criteria: every task's criteria are met (check TASKS.md)
   │   ├── Consistency (does it match project conventions?)
   │   ├── Security (any vulnerabilities?)
   │   └── Performance (any obvious issues?)
