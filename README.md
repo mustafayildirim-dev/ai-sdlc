@@ -42,7 +42,7 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 | Technique | Purpose |
 |-----------|---------|
 | **Stage Gate Model** | 6 stages with entry/exit criteria for quality control |
-| **Stage Triggers** | Maps human commands to stages — 9 rules (RULES.md §7.1-7.9) |
+| **Stage Triggers** | Maps human commands to stages — 10 rules (RULES.md §7.1-7.10) |
 | **Session Lifecycle** | Session open sequence, trigger mapping, close protocol |
 | **Plan Mode** | Read-only exploration before any task — understand before touching |
 | **Reverse Brief** | AI restates task understanding for human confirmation |
@@ -125,13 +125,25 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 | `WORKFLOW.md` | AI workflow process — reusable across projects (read every session) |
 | `INITIATION.md` | Stage 0: Ideation & Initiation — only read during project setup |
 | `CONVENTIONS.md` | Project conventions & terminology |
-| `TEMPLATES/` | Starter templates: VISION.md, ADR, CONVENTIONS, GLOSSARY, CLAUDE.md, Cursor rules, MCP config, post-mortem, opencode.json, prompt structure, plan/code reviewer skills, migration plan |
+| `SKILLS.md` | Skills directory — AI reviewer skill documentation |
+| `TEMPLATES/` | Starter templates: VISION.md, ADR, CONVENTIONS, GLOSSARY, CLAUDE.md, Cursor rules, MCP config, post-mortem, opencode.json, prompt structure, plan/code reviewer skills, migration plan, risk register |
 | `scripts/security_check.ps1` | Pre-commit secret scanner |
 | `scripts/validate_refs.ps1` | Cross-reference link checker |
 | `TEMPLATES/POSTMORTEM_TEMPLATE.md` | Post-incident analysis template |
 | `TEMPLATES/CLAUDE_TEMPLATE.md` | Claude Code config (references AGENTS.md) |
 | `TEMPLATES/CURSOR_RULES_TEMPLATE.md` | Cursor IDE rules |
 | `TEMPLATES/MCP_CONFIG_TEMPLATE.json` | MCP server configuration |
+| `TEMPLATES/PROMPT_TEMPLATE.md` | Structured prompt format (Goal + Constraints + Verification + Process) |
+| `TEMPLATES/REVIEWER_SKILL_TEMPLATE.md` | Plan/code reviewer skill templates |
+| `TEMPLATES/MIGRATION_PLAN_TEMPLATE.md` | Schema migration plan template |
+| `TEMPLATES/RISK_TEMPLATE.md` | Risk register starter format |
+
+### `.claude/` Directory (Optional)
+
+| File | Purpose |
+|------|---------|
+| `skills/review-plan/SKILL.md` | Plan reviewer skill — invoke with `/review-plan` |
+| `skills/review-code/SKILL.md` | Code reviewer skill — invoke with `/review-code` |
 
 ## License
 

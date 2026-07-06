@@ -156,7 +156,7 @@ For daily development, just tell the AI what to do:
 > **"Fix the database connection error."**
 > **"Add unit tests for the payment service."**
 
-The AI reads RULES.md and WORKFLOW.md at session start, follows Stage 1→4, and updates all documentation automatically.
+The AI reads RULES.md and WORKFLOW.md at session start, maps your command to the appropriate stage via Stage Triggers (RULES.md §7), and updates all documentation automatically.
 
 ### Step 6: Evaluate Project Health
 
@@ -555,6 +555,7 @@ Additional templates available in `.ai/TEMPLATES/`:
 - `PROMPT_TEMPLATE.md` — structured prompt format (Goal + Constraints + Verification + Process)
 - `REVIEWER_SKILL_TEMPLATE.md` — plan-review and code-review skill templates for `.claude/skills/`
 - `MIGRATION_PLAN_TEMPLATE.md` — schema migration plan template
+- `RISK_TEMPLATE.md` — risk register starter format
 
 ---
 
