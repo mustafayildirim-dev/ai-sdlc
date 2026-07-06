@@ -60,6 +60,7 @@
 | 5.3 | Never assume a future AI session has access to the current conversation history. Everything needed for continuity must be **in the project files**. |
 | 5.4 | When starting a session where files were created by another model, **review CONVENTIONS.md and DECISIONS.md carefully** before making any changes. |
 | 5.5 | **Track technical debt** in a `## Technical Debt` section in TASKS.md. Whenever you take a shortcut, use a workaround, or defer a cleanup, add an entry with description, effort estimate, and trigger for resolution. During Stage 5 (Retrospective), review and prioritize the backlog. |
+| 5.6 | **Manage context rot.** If you have made 60+ messages or 30+ file edits in this session, offer to start fresh. If you catch yourself repeating questions or forgetting earlier decisions, state "I'm experiencing context rot" and suggest a fresh session. Debugging sessions MUST start fresh. Architecture discussions should start a new session after 15-20 messages. |
 
 ## 6. Git & Version Control
 
@@ -70,6 +71,7 @@
 | 6.3 | Keep commits **small and focused** on a single concern. |
 | 6.4 | Write commit messages that explain **what and why**, not how. |
 | 6.5 | Never commit **secrets, API keys, passwords, or sensitive data**. Run `.ai/scripts/security_check.ps1` on staged files before every commit. If the scan detects potential secrets, block the commit and flag it immediately. |
+| 6.6 | Any task that changes a **database schema, data model, or API contract** MUST produce a migration plan using `.ai/TEMPLATES/MIGRATION_PLAN_TEMPLATE.md`. The plan must include: forward migration, rollback, app code changes, rollback strategy. The plan must be reviewed and approved by the human before writing any migration code. |
 
 ## 7. Stage Triggers
 
@@ -115,3 +117,5 @@
 | 9.6 | **Plan user verification.** Before marking a user-facing task complete, ensure a "Verify with user" sub-task exists. The AI decides which tasks need verification based on: user-facing impact, subjective behavior, bug fixes, and business-critical logic. Do not create verify tasks for infrastructure or refactoring work. Group related verify tasks into check-points to avoid overwhelming the user. |
 | 9.7 | **Empty Box Detection.** Before marking any task "completed", verify it has meaningful functional value — not just skeleton code that compiles or passes tests. Check: (a) does it handle edge cases (empty input, errors, boundary values)? (b) does the output actually satisfy the user's intent beyond the literal prompt? (c) would a human looking at this say "this works" rather than "this exists"? If the implementation is purely surface-level (CRUD without validation, handler without error paths, UI without interaction logic), flag it as incomplete and add the missing pieces. |
 | 9.8 | **Adversarial Review.** During Stage 4 (Review), critique your own code as if you were a skeptical reviewer. Check for: (a) bloat — dead code, unused imports, over-engineered abstractions; (b) copy-paste repetition that should be extracted; (c) brittle abstractions that leak or over-generalize; (d) missing edge cases (error paths, empty states, boundary conditions); (e) diff size — is the change larger than necessary? For each issue, either fix it or add a technical debt entry to TASKS.md. |
+| 9.9 | **AI Reviewer Invocation.** For non-trivial plans (more than 3 files or a new feature), offer to invoke `/review-plan`. For non-trivial code changes (more than 30 lines or logic changes), offer to invoke `/review-code`. Reviewers use the skills in `.claude/skills/review-plan/SKILL.md` and `.claude/skills/review-code/SKILL.md`. Share review reports with the human before acting on them. Critical and major issues must be fixed immediately; minor issues go to technical debt. |
+| 9.10 | **Debug Protocol.** If a fix attempt fails twice, STOP and escalate to the Debugging Protocol in WORKFLOW.md. Diagnosis and fixing must happen in separate, fresh conversations. If two AI agents diagnose the same bug differently, investigate further (do not pick a side). Always commit or checkpoint before starting debug protocol. |

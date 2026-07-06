@@ -56,6 +56,16 @@ Every AI session follows this lifecycle:
 ---
 
 
+### Context Rot Management
+
+AI sessions degrade in quality as context grows. Follow these guidelines:
+
+1. **Complex debugging** → always start a new conversation (see Debugging Protocol)
+2. **Long sessions** (60+ messages or 30+ file edits) → summarize progress, ask if you should start a fresh session
+3. **Architecture discussion** → move to new session after 15-20 messages
+4. **If you feel uncertain** → you probably have context rot. Ask the human to start fresh.
+5. **Signs of rot**: repeating questions, forgetting earlier decisions, proposing contradictory changes, slower responses
+
 ---
 
 ## Plan Mode: Read-Only Exploration
@@ -94,11 +104,20 @@ Step P.4: Present to Human
   ├── Present the plan with file list and approach
   ├── Highlight risks or open questions
   └── Wait for human approval before touching any file
+
+Step P.5: AI Plan Review (optional but recommended)
+  ├── Invoke a second AI instance (or skill) to review the plan:
+  │   ├── "/review-plan — check for logical gaps, inconsistency, over-engineering"
+  │   ├── Review report comes back — do NOT modify the plan yet
+  │   └── Share report with human: "The reviewer flagged [issues]. Should we address them?"
+  ├── Address confirmed issues → update plan
+  └── Re-present to human if plan changed significantly
 ```
 
 ### Exit Criteria
 - [ ] Codebase exploration complete
 - [ ] Clear implementation plan presented
+- [ ] Plan reviewed (optional: second AI review completed)
 - [ ] Human approves (or redirects)
 - [ ] No files were modified
 
@@ -186,7 +205,11 @@ Step 2.2: Decide
 Step 2.3: Plan Implementation
   ├── Break the task into sub-tasks
   ├── Determine the order of file creation/modification
-  └── Identify test scenarios
+  ├── Identify test scenarios
+  └── If the task involves schema changes (DB migration, new fields, new models):
+      ├── Produce a Migration Plan using `.ai/TEMPLATES/MIGRATION_PLAN_TEMPLATE.md`
+      ├── Include: forward migration (up), rollback (down), app code changes, rollback strategy
+      └── Present the plan to human for approval BEFORE writing any migration code
 ```
 
 ### Exit Criteria
@@ -238,6 +261,16 @@ Step 3.4: Functional Walkthrough
   ├── For user-facing changes: prepare walkthrough scenarios for human review
   ├── Note any assumptions made during implementation
   └── Record implementation decisions in DECISIONS.md
+
+Step 3.5: AI Code Review (optional but recommended)
+  ├── Invoke a second AI instance (or skill) to review the changes:
+  │   ├── "/review-code — check for bugs, error handling, test coverage, security"
+  │   ├── Review report comes back — do NOT fix anything yet
+  │   └── Share report with human: "The reviewer found [issues]. Should we address them?"
+  ├── Address confirmed issues:
+  │   ├── Fix critical and major issues immediately
+  │   └── Add minor issues as technical debt in TASKS.md
+  └── Re-run verification loop after fixes
 ```
 
 ### Exit Criteria
@@ -247,6 +280,7 @@ Step 3.4: Functional Walkthrough
 - [ ] Tests pass
 - [ ] Linting and type checking pass
 - [ ] No breaking changes without documentation
+- [ ] (Optional) AI code review completed and issues resolved
 
 ---
 
@@ -268,7 +302,11 @@ Step 4.1: Self-Review
   │   ├── Acceptance criteria: every task's criteria are met (check TASKS.md)
   │   ├── Consistency (does it match project conventions?)
   │   ├── Security (any vulnerabilities?)
-  │   └── Performance (any obvious issues?)
+  │   ├── Performance (any obvious issues?)
+  │   └── Three-Layer Consistency Check:
+  │       ├── Data layer — are database schemas, models, migrations updated?
+  │       ├── Controller/Logic layer — is the business logic updated?
+  │       └── View/Presentation layer — is the UI or API response updated?
   └── Adversarial Review (critique your own code):
       ├── Bloat check — is there dead code, over-engineered abstractions, unused imports?
       ├── Copy-paste check — are there repeated patterns that should be extracted?
@@ -371,6 +409,50 @@ Step 5.3: Plan Ahead
 - [ ] Process improvements proposed to human
 - [ ] ROADMAP.md and TASKS.md updated
 - [ ] New risks documented
+
+---
+
+## Debugging Protocol
+
+*When a bug surfaces that the AI cannot fix in 1-2 attempts, follow this protocol instead of repeating the same loop.*
+
+### Principles
+
+1. **Separate diagnosis from fixing** — never let the AI fix a bug it hasn't correctly diagnosed
+2. **Fresh context for fresh eyes** — start a new conversation for debugging to avoid context rot
+3. **Converge before committing** — if unsure, ask 2+ agents to diagnose independently
+
+### Process
+
+```
+Step D.1: Detect
+  ├── A test fails, a feature doesn't work, or the human reports unexpected behavior
+  └── If the current AI has tried 2+ fixes without success → STOP and escalate
+
+Step D.2: Diagnose (in a new conversation)
+  ├── Start a fresh session (use /clear or open new conversation)
+  ├── Prompt: "Just diagnose, don't fix. Investigate [issue]. Report root cause only."
+  ├── Provide: relevant error messages, file paths, current behavior vs expected behavior
+  └── Do NOT write any code — only investigate and report
+
+Step D.3: Converge
+  ├── If the diagnosis is uncertain, ask a second AI agent the same question
+  ├── Compare diagnoses:
+  │   ├── If they converge → proceed to fix
+  │   └── If they diverge → investigate further, provide more context
+  └── Share the diagnosis with the human for confirmation
+
+Step D.4: Fix (in another new conversation)
+  ├── Start another fresh session (diagnosis context should NOT bleed into fix)
+  ├── Prompt: "Here is the diagnosis: [root cause]. Fix it. Follow the standard workflow."
+  ├── After fix → run verification loop
+  └── If the fix doesn't work → go back to Step D.2 (re-diagnose)
+```
+
+### Rules
+- Never attempt the same fix more than twice — if it fails twice, the diagnosis is likely wrong
+- Always start a new conversation for diagnosis — context from implementation sessions corrupts debugging
+- Commit the current state before debugging so you can roll back if needed
 
 ---
 

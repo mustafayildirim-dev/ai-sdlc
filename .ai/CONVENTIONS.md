@@ -12,6 +12,15 @@
 | **Plan Mode** | A read-only exploration phase invoked before any non-trivial task. The AI investigates the codebase, analyzes the problem, and proposes an approach — without modifying any files. | WORKFLOW.md Plan Mode section, RULES.md 7.9 |
 | **Verification Loop** | The closed feedback cycle: Change → Verify → Read Result → Fix → Repeat. Ensures the AI self-corrects without waiting for human feedback. | CONVENTIONS.md, WORKFLOW.md Step 3.3 |
 | **Adversarial Review** | Self-critique of generated code for bloat, copy-paste, brittle abstractions, missing edge cases, and diff size. Identified issues are fixed or tracked as technical debt. | WORKFLOW.md Step 4.1, RULES.md 9.8 |
+| **AI Plan Reviewer** | A second AI (or skill) that reviews an implementation plan for gaps, inconsistency, and over-engineering before any code is written. | WORKFLOW.md Step P.5, RULES.md 9.9 |
+| **AI Code Reviewer** | A second AI (or skill) that reviews generated code for bugs, error handling, test coverage, and security. | WORKFLOW.md Step 3.5, RULES.md 9.9 |
+| **Debugging Protocol** | Structured approach to diagnose-then-fix bugs: separate conversations for diagnosis and fixing, convergence check, never attempt the same fix twice. | WORKFLOW.md Debugging Protocol, RULES.md 9.10 |
+| **Migration Plan** | A structured plan for schema changes: forward migration, rollback, app code changes, rollback strategy — must be approved before writing migration code. | WORKFLOW.md Step 2.3, RULES.md 6.6 |
+| **Prompt Structure** | Four-element prompt format: Goal + Constraints + Verification + Process. | CONVENTIONS.md, .ai/TEMPLATES/PROMPT_TEMPLATE.md |
+| **Three-Layer Consistency** | Verify Data/Controller/View layers are in sync after every feature change. | CONVENTIONS.md, WORKFLOW.md Step 4.1 |
+| **Context Rot** | Degradation of AI reasoning quality in long sessions. Mitigated by fresh sessions for debugging, breaks after 60 messages / 30 edits, and explicit signaling. | WORKFLOW.md Session Lifecycle, RULES.md 5.6 |
+| **Reverse Brief** | AI restates its understanding of a task (goal, edge cases, definition of done) for human confirmation before starting work. Catches misalignment early. | WORKFLOW.md Step 1.2 |
+| **Functional Walkthrough** | AI demonstrates each acceptance criterion with evidence (request/response, UI state, CLI output) after implementation. | WORKFLOW.md Step 3.4 |
 
 ### Rules
 
@@ -71,6 +80,57 @@ Key rules:
 - Read the output of each check — do not assume it passed
 - If a check fails, fix the root cause, not the symptom
 - If the loop runs 3+ times on the same change, stop and reassess the approach
+
+## Three-Layer Consistency Check
+
+Every change that touches a feature must be verified across three layers:
+
+- **Data layer** — database schemas, migrations, models, types
+- **Controller/Logic layer** — business logic, API handlers, state management
+- **View/Presentation layer** — UI components, API responses, user-facing output
+
+If any layer is modified, the other two must be checked for consistency. The check runs during Stage 4.1 (Self-Review).
+
+## Prompt Structure
+
+When asking the AI to perform a task, use this structure for clarity:
+
+```
+Goal: [what to do — one sentence]
+Constraints: [files to touch, files to avoid, conventions to follow]
+Verification: [commands to test, lint, type-check]
+Process: [propose first → wait for approval → implement → verify → summarize]
+```
+
+See `.ai/TEMPLATES/PROMPT_TEMPLATE.md` for examples.
+
+## Migration Plan Requirement
+
+Any task involving schema changes (database migration, new fields, new models, API contract changes) MUST produce a migration plan before writing code:
+
+1. Use `.ai/TEMPLATES/MIGRATION_PLAN_TEMPLATE.md`
+2. Plan must include: forward migration, rollback, app code changes, rollback strategy
+3. Plan must be approved by the human before writing any migration code
+
+## Debugging Protocol
+
+When a bug surfaces that the AI cannot fix in 1-2 attempts:
+
+1. **Separate diagnosis from fixing** — never fix a bug that hasn't been correctly diagnosed
+2. **Fresh context for fresh eyes** — start a new conversation for debugging
+3. **Converge before committing** — if unsure, ask 2+ agents to diagnose independently
+
+See WORKFLOW.md Debugging Protocol section for full process.
+
+## Example File Reference Pattern
+
+All cross-file references in documentation must follow this convention:
+
+- **Code files:** `file_path:line` (e.g., `src/services/auth.ts:42`)
+- **Documentation files:** `path relative to project root` (e.g., `.ai/WORKFLOW.md`)
+- **Don't use:** absolute paths, URLs, or ambiguous names
+
+This ensures any AI or developer can navigate the reference without guessing.
 
 ## Post-Mortem Process
 

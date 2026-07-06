@@ -23,6 +23,15 @@
 - **Type check:** `[e.g. mypy ., tsc --noEmit]`
 - **Build/run:** `[e.g. uvicorn main:app --reload, npm run dev]`
 
+## Skills (Optional)
+
+You can create AI review skills in `.claude/skills/`:
+
+- `.claude/skills/review-plan/SKILL.md` — plan reviewer skill
+- `.claude/skills/review-code/SKILL.md` — code reviewer skill
+
+Invoke with `/review-plan` or `/review-code` after setup. These invoke a second AI instance to review plans and code independently.
+
 ## Never Touch
 
 <!-- List files or directories the AI must never modify -->

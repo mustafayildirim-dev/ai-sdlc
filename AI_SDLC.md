@@ -30,6 +30,10 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 | **Traceability** | Every decision has a recorded rationale (Architecture Decision Records) |
 | **Model Agnostic** | The system works with any AI model; conventions ensure consistency across model switches |
 | **Gate-Based Progress** | Work moves through defined stages with explicit completion criteria |
+| **Plan Before Build** | Every non-trivial task starts with read-only exploration (Plan Mode) — understand before touching |
+| **Verify as You Go** | Every change follows a closed feedback loop: change → verify → read result → fix → repeat (Verification Loop) |
+| **Self-Critique** | AI reviews its own output for bloat, copy-paste, brittle abstractions, and edge cases (Adversarial Review) |
+| **Diagnose Before Fix** | Debugging separates diagnosis from fixing — never fix a bug that hasn't been correctly diagnosed (Debug Protocol) |
 
 ---
 
@@ -100,6 +104,13 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 | `.ai/scripts/validate_refs.ps1` | AI (scaffold) | After initiation | Rarely | Copy to projects |
 | `.github/workflows/security.yml` | AI (scaffold) | After initiation | Rarely | Copy to projects |
 | `.github/workflows/validate.yml` | AI (scaffold) | After initiation | Rarely | Copy to projects |
+| `.ai/SKILLS.md` | AI | After initiation | As needed | Copy to projects |
+| `.ai/TEMPLATES/PROMPT_TEMPLATE.md` | AI (scaffold) | After initiation | Rarely | Copy to projects |
+| `.ai/TEMPLATES/REVIEWER_SKILL_TEMPLATE.md` | AI (scaffold) | After initiation | Rarely | Copy to projects |
+| `.ai/TEMPLATES/MIGRATION_PLAN_TEMPLATE.md` | AI (scaffold) | After initiation | Rarely | Copy to projects |
+| `.ai/TEMPLATES/RISK_TEMPLATE.md` | AI (scaffold) | After initiation | Rarely | Copy to projects |
+| `.claude/skills/review-plan/SKILL.md` | AI | After initiation | As needed | Copy to projects |
+| `.claude/skills/review-code/SKILL.md` | AI | After initiation | As needed | Copy to projects |
 
 ---
 
@@ -198,7 +209,7 @@ The "how to behave." Immutable behavioral directives for the AI. Never modified 
 
 ### WORKFLOW.md
 
-The "how to work." The step-by-step process the AI follows in every session. Includes session lifecycle, stage triggers, **Plan Mode** (read-only exploration), Stage 1-6 (Planning through Evaluation), verification loop, adversarial review, checkpoint git workflow, and technical debt tracking. Read every session after initialization.
+The "how to work." The step-by-step process the AI follows in every session. Includes session lifecycle, stage triggers, **Plan Mode** (read-only exploration), **AI Plan Review** (optional second-AI plan review), Stage 1-6 (Planning through Evaluation), verification loop, **AI Code Review** (optional), adversarial review, **functional walkthrough**, **debugging protocol**, **migration plan** requirement, **context rot** management, **three-layer consistency** check, checkpoint git workflow, and technical debt tracking. Read every session after initialization.
 
 ### INITIATION.md
 
@@ -541,6 +552,9 @@ Additional templates available in `.ai/TEMPLATES/`:
 - `CURSOR_RULES_TEMPLATE.md` — Cursor IDE rules (.cursor/rules/ format)
 - `MCP_CONFIG_TEMPLATE.json` — Model Context Protocol server configuration
 - `OPENCODE_CONFIG_TEMPLATE.json` — OpenCode integration
+- `PROMPT_TEMPLATE.md` — structured prompt format (Goal + Constraints + Verification + Process)
+- `REVIEWER_SKILL_TEMPLATE.md` — plan-review and code-review skill templates for `.claude/skills/`
+- `MIGRATION_PLAN_TEMPLATE.md` — schema migration plan template
 
 ---
 

@@ -1,10 +1,12 @@
 # AGENTS.md — Welcome
 
-Welcome to this project. This file helps you get up to speed quickly.
+Welcome to **AI-SDLC** — a structured methodology for building production-grade software with AI assistance.
+
+> This file is designed to be copied to new AI-SDLC projects. For the meta-project (this repo), see [VISION.md](./VISION.md) and [AI_SDLC.md](./AI_SDLC.md) for project context. For user projects, replace the Quick Start items below with your actual project files.
 
 ## Project Overview
 
-<!-- Briefly describe project purpose -->
+AI-SDLC provides a shared context system, stage-gated workflows, and model-agnostic continuity so that AI-assisted projects don't lose knowledge between sessions or model switches. The methodology is fully self-contained in the `.ai/` directory.
 
 ## Quick Start
 
@@ -25,3 +27,4 @@ Welcome to this project. This file helps you get up to speed quickly.
 | `ROADMAP.md` | Milestone plan and timeline |
 | `CHANGELOG.md` | History of changes |
 | `GLOSSARY.md` | Domain terminology |
+| `MULTI_MODEL.md` | Multi-model strategy — which model for which task |
