@@ -48,6 +48,7 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 | `LICENSE` | MIT license |
 | `AGENTS.md` | AI onboarding — read first in every session |
 | `RISK.md` | Risk register — active, mitigated, closed risks |
+| `MULTI_MODEL.md` | Multi-model strategy — which model for which task |
 
 ### `.ai/` Directory
 
@@ -57,10 +58,13 @@ For full instructions, read **[AI_SDLC.md](./AI_SDLC.md)**.
 | `WORKFLOW.md` | AI workflow process — reusable across projects (read every session) |
 | `INITIATION.md` | Stage 0: Ideation & Initiation — only read during project setup |
 | `CONVENTIONS.md` | Project conventions & terminology |
-| `TEMPLATES/` | Starter templates for VISION.md, ADR, CONVENTIONS, GLOSSARY, opencode.json |
+| `TEMPLATES/` | Starter templates for VISION.md, ADR, CONVENTIONS, GLOSSARY, CLAUDE.md, Cursor rules, MCP config, post-mortem, opencode.json |
 | `scripts/security_check.ps1` | Pre-commit secret scanner |
 | `scripts/validate_refs.ps1` | Cross-reference link checker |
 | `TEMPLATES/POSTMORTEM_TEMPLATE.md` | Post-incident analysis template |
+| `TEMPLATES/CLAUDE_TEMPLATE.md` | Claude Code config (references AGENTS.md) |
+| `TEMPLATES/CURSOR_RULES_TEMPLATE.md` | Cursor IDE rules |
+| `TEMPLATES/MCP_CONFIG_TEMPLATE.json` | MCP server configuration |
 
 ## License
 

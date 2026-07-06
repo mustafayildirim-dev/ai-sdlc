@@ -9,6 +9,9 @@
 | **Stage** | A step in the AI-SDLC workflow process (e.g., Stage 1: Planning, Stage 2: Design, Stage 3: Implementation, Stage 4: Review, Stage 5: Retrospective, Stage 6: Project Evaluation) | Used in WORKFLOW.md, RULES.md triggers |
 | **Milestone** | A project-level deliverable with a target date (e.g., Milestone 1: Foundation, Milestone 2: Tools & Domains) | Used in ROADMAP.md, TASKS.md, PROJECT.md |
 | **Step** | A sub-task within a workflow stage (e.g., Step 1.1, Step 2.1) | Used within WORKFLOW.md stage definitions |
+| **Plan Mode** | A read-only exploration phase invoked before any non-trivial task. The AI investigates the codebase, analyzes the problem, and proposes an approach — without modifying any files. | WORKFLOW.md Plan Mode section, RULES.md 7.9 |
+| **Verification Loop** | The closed feedback cycle: Change → Verify → Read Result → Fix → Repeat. Ensures the AI self-corrects without waiting for human feedback. | CONVENTIONS.md, WORKFLOW.md Step 3.3 |
+| **Adversarial Review** | Self-critique of generated code for bloat, copy-paste, brittle abstractions, missing edge cases, and diff size. Identified issues are fixed or tracked as technical debt. | WORKFLOW.md Step 4.1, RULES.md 9.8 |
 
 ### Rules
 
@@ -52,6 +55,22 @@ Every task must satisfy this checklist before it can be marked **completed**:
 - [ ] DoD checklist reviewed and confirmed
 
 A task that does not meet all criteria remains **in-progress** or **blocked**.
+
+## Verification Loop
+
+Every change follows this closed loop:
+
+```
+Change → Verify (test/lint/type/build) → Read Result → Fix if failed → Repeat until all pass
+```
+
+The AI must **not** proceed to the next change until the current change passes all checks. The loop closes automatically when all gates pass. This is the core feedback mechanism for self-correcting AI development.
+
+Key rules:
+- Always run the full verification suite after every change, not at the end
+- Read the output of each check — do not assume it passed
+- If a check fails, fix the root cause, not the symptom
+- If the loop runs 3+ times on the same change, stop and reassess the approach
 
 ## Post-Mortem Process
 

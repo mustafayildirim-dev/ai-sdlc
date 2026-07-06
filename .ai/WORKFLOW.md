@@ -33,6 +33,7 @@ Every AI session follows this lifecycle:
 │                                                      │
 │  "start a project" / "ideate"  →  INITIATION.md     │
 │  "initiate" / "initialize"     →  INITIATION.md     │
+│  "analyze" / "explore" / "plan this" →  Plan Mode   │
 │  "implement X" / "fix Y"       →  Stage 1 → 4       │
 │  Other development task        →  Stage 1 → 4       │
 └───────────────────┬─────────────────────────────────┘
@@ -54,6 +55,56 @@ Every AI session follows this lifecycle:
 
 ---
 
+
+---
+
+## Plan Mode: Read-Only Exploration
+
+*Invoked when the human says **"analyze"**, **"explore"**, **"plan this"**, or before any non-trivial task.*
+
+A read-only investigation phase. The AI explores the codebase, analyzes the problem, and proposes an approach — without modifying a single file.
+
+### Entry Criteria
+- [ ] Project is initialized (PROJECT.md exists)
+- [ ] A concrete question or task is defined
+
+### Process
+
+```
+Step P.1: Understand the Request
+  ├── Read the task description or question
+  ├── Clarify scope with the human if ambiguous
+  └── Identify which parts of the codebase are relevant
+
+Step P.2: Explore the Codebase
+  ├── Read relevant files (ROADMAP.md, TASKS.md, DECISIONS.md, ARCHITECTURE.md)
+  ├── Read source files affected by the task
+  ├── Identify current behavior, interfaces, data flow
+  └── Note potential risks, edge cases, and unknowns
+
+Step P.3: Formulate a Plan
+  ├── Outline the implementation approach
+  ├── List files that will be created or modified
+  ├── Identify test scenarios
+  ├── Estimate effort (S/M/L)
+  └── Note any architectural decisions that must be made
+
+Step P.4: Present to Human
+  ├── Summarize findings (2-3 sentences)
+  ├── Present the plan with file list and approach
+  ├── Highlight risks or open questions
+  └── Wait for human approval before touching any file
+```
+
+### Exit Criteria
+- [ ] Codebase exploration complete
+- [ ] Clear implementation plan presented
+- [ ] Human approves (or redirects)
+- [ ] No files were modified
+
+### Trigger Integration
+
+When the human says "analyze X" or "explore Y", enter Plan Mode. After the plan is approved, proceed to **Stage 1 (Planning)** for task selection, or directly to **Stage 2 (Design)** if the task is already well-defined.
 
 ---
 
@@ -169,12 +220,14 @@ Step 3.2: Implement
   ├── Keep changes focused on the task scope
   └── Commit early, commit often
 
-Step 3.3: Verify
+Step 3.3: Verify (Verification Loop)
   ├── Run linter → fix all issues
   ├── Run type checker → fix all issues
   ├── Run tests → fix all failures
   ├── Run build/dev server → confirm it works
-  └── Validate each acceptance criterion from TASKS.md — one by one, with evidence
+  ├── Validate each acceptance criterion from TASKS.md — one by one, with evidence
+  └── Loop: if any check fails, fix → re-verify → repeat until all pass
+      (The verification loop closes automatically: change → check → read result → fix → repeat)
 
 Step 3.4: Functional Walkthrough
   ├── For each implemented task, demonstrate the behavior:
@@ -209,13 +262,20 @@ Step 3.4: Functional Walkthrough
 
 ```
 Step 4.1: Self-Review
-  ├── Review all changed files for:
+  ├── Standard review:
   │   ├── Correctness (does it work?)
   │   ├── Completeness (does it cover edge cases? is it more than a skeleton?)
   │   ├── Acceptance criteria: every task's criteria are met (check TASKS.md)
   │   ├── Consistency (does it match project conventions?)
   │   ├── Security (any vulnerabilities?)
   │   └── Performance (any obvious issues?)
+  └── Adversarial Review (critique your own code):
+      ├── Bloat check — is there dead code, over-engineered abstractions, unused imports?
+      ├── Copy-paste check — are there repeated patterns that should be extracted?
+      ├── Abstraction check — are abstractions brittle (leaky, over-general, wrong level)?
+      ├── Edge-case check — are error paths, empty states, boundary conditions handled?
+      ├── Diff-size check — is the diff larger than expected? Could it be smaller?
+      └── For each issue found: fix it OR add a technical debt entry to TASKS.md
 
 Step 4.2: User Verification Gate (if user-verify sub-tasks exist)
   ├── Check TASKS.md for pending "Verify with user" sub-tasks
@@ -404,6 +464,27 @@ git push origin feature/user-authentication
 - Never force-push to shared branches
 - Rebase onto `develop` before creating a PR
 - Delete feature branches after merging
+
+### Checkpoint Workflow (Vibe / Rapid Prototyping)
+
+For exploratory or high-iteration-rate work, use checkpoint commits to save every working state:
+
+```
+1. git checkout -b explore/<feature-name>
+2. Make a change → verify it works → git commit -m "checkpoint: working state description"
+3. Iterate: change → verify → checkpoint commit
+4. After reaching a clean state:
+   git checkout -b cleanup/<feature-name>
+   git rebase -i HEAD~N   # squash checkpoint commits into logical units
+   git commit -m "feat: final description"
+5. Merge into develop when stable
+```
+
+Rules:
+- Every checkpoint must represent a **working state** (tests may be incomplete, but code runs without crashes)
+- Checkpoint messages are informal: `checkpoint: basic form renders`, `checkpoint: API returns data`
+- Squash checkpoints before merging into develop — never push checkpoint history to shared branches
+- If a checkpoint introduces a regression, `git reset --hard` back to the last good one (checkpoints are cheap to discard)
 
 ---
 

@@ -45,6 +45,19 @@ src/
 tests/
 ```
 
+## Verification Loop
+
+Every change follows this closed loop:
+
+```
+Change → Verify (test/lint/type/build) → Read Result → Fix if failed → Repeat until all pass
+```
+
+- Run the full verification after **every** change, not at the end
+- Read the output — do not assume it passed
+- Fix the root cause, not the symptom
+- If the loop runs 3+ times on the same change, stop and reassess
+
 ## Definition of Done
 
 Every task must satisfy this checklist before it can be marked **completed**:

@@ -95,6 +95,7 @@ Most AI-assisted projects fail not because the AI is incapable, but because the 
 | `.gitignore` | Human | Project start | Rarely | No |
 | `AGENTS.md` | Human | Project start | As needed | **Yes** — copy to new projects |
 | `RISK.md` | AI | After initiation | Continuously | No |
+| `MULTI_MODEL.md` | Human + AI | After initiation | Per milestone | **Yes** — copy to new projects |
 | `.ai/scripts/security_check.ps1` | AI (scaffold) | After initiation | Rarely | Copy to projects |
 | `.ai/scripts/validate_refs.ps1` | AI (scaffold) | After initiation | Rarely | Copy to projects |
 | `.github/workflows/security.yml` | AI (scaffold) | After initiation | Rarely | Copy to projects |
@@ -197,7 +198,7 @@ The "how to behave." Immutable behavioral directives for the AI. Never modified 
 
 ### WORKFLOW.md
 
-The "how to work." The step-by-step process the AI follows in every session. Includes session lifecycle, stage triggers, Stage 1-6 (Planning through Evaluation), and git workflow. Read every session after initialization.
+The "how to work." The step-by-step process the AI follows in every session. Includes session lifecycle, stage triggers, **Plan Mode** (read-only exploration), Stage 1-6 (Planning through Evaluation), verification loop, adversarial review, checkpoint git workflow, and technical debt tracking. Read every session after initialization.
 
 ### INITIATION.md
 
@@ -250,6 +251,10 @@ The "welcome mat." Provides a quick-start guide for new AI models or developers 
 ### RISK.md
 
 The "what could go wrong." Tracks project risks with probability, impact, mitigation, and status. Maintained continuously — updated when new risks emerge, risks materialize, or mitigations change.
+
+### MULTI_MODEL.md
+
+The "which model for which job." Provides a tiered model strategy — frontier models for architecture and security, standard models for feature work, light models for boilerplate and exploration. Helps optimize cost and quality across different task types. See also: Plan Mode (read-only exploration before committing to a model tier).
 
 ### README.md
 
@@ -532,6 +537,9 @@ Additional templates available in `.ai/TEMPLATES/`:
 - `CONVENTIONS_TEMPLATE.md` — coding conventions starter (includes Stage/Milestone terminology rule)
 - `GLOSSARY_TEMPLATE.md` — glossary starter
 - `POSTMORTEM_TEMPLATE.md` — structured post-incident analysis
+- `CLAUDE_TEMPLATE.md` — Claude Code configuration (references AGENTS.md)
+- `CURSOR_RULES_TEMPLATE.md` — Cursor IDE rules (.cursor/rules/ format)
+- `MCP_CONFIG_TEMPLATE.json` — Model Context Protocol server configuration
 - `OPENCODE_CONFIG_TEMPLATE.json` — OpenCode integration
 
 ---
